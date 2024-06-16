@@ -1,24 +1,29 @@
 import React from 'react';
-import './App.css'
+import './App.css';
 import Header from './Components/Header';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Components/Home';
+import Lostitm from './Components/Lostitm';
+import Founditm from './Components/Founditm';
+import Report from './Components/Report';
 
 function App() {
-  <div>
-    <Router>
+  return (
+    <div>
+      <Router>
         <Header />
         <div>
           <Switch>
-            <Route path="/HOME">
-              <App />
+            <Route path="/home">
+              <Home />
             </Route>
-            <Route path="/LOST ITEMS">
+            <Route path="/lost-items">
               <Lostitm />
             </Route>
-            <Route path="/FOUND ITEMS">
+            <Route path="/found-items">
               <Founditm />
             </Route>
-            <Route path="/REPORT">
+            <Route path="/report">
               <Report />
             </Route>
             <Route path="/">
@@ -27,7 +32,8 @@ function App() {
           </Switch>
         </div>
       </Router>
-  </div>
+    </div>
+  );
 }
 
-export default App
+export default App;

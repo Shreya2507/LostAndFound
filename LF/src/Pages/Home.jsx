@@ -1,7 +1,6 @@
 import React from 'react'
-import '../App.css';
 
-function Report() {
+function Home() {
   return (
     <div>
       
@@ -9,4 +8,4 @@ function Report() {
   )
 }
 
-export default Report
+export default Home
