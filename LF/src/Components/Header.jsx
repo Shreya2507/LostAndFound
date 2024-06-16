@@ -21,6 +21,7 @@ function Header() {
             <Link to="/Report">REPORT</Link>
           </nav>
         </div>
+        
       </header>
     </div>
   );

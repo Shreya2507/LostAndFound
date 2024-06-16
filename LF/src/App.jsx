@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Components/Home';
-import Lostitm from './Components/Lostitm';
-import Founditm from './Components/Founditm';
-import Report from './Components/Report';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home';
+import Lostitm from './Pages/Lostitm';
+import Founditm from './Pages/Founditm';
+import Report from './Pages/Report';
 
 function App() {
   return (
@@ -13,23 +13,13 @@ function App() {
       <Router>
         <Header />
         <div>
-          <Switch>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/lost-items">
-              <Lostitm />
-            </Route>
-            <Route path="/found-items">
-              <Founditm />
-            </Route>
-            <Route path="/report">
-              <Report />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/Lostitm" element={<Lostitm />} />
+            <Route path="/Founditm" element={<Founditm />} />
+            <Route path="/Report" element={<Report />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
         </div>
       </Router>
     </div>

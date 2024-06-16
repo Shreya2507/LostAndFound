@@ -1,0 +1,45 @@
+.page-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+  }
+
+.logo {
+    margin: 20px;
+    margin-right: auto;
+
+  }
+  
+  .head {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .navbar {
+    display: inline-block;
+  }
+  
+  .navbar a {
+    margin: 0 30px;
+    font-size: 21px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    cursor: pointer;
+    font-family: 'Poppins';
+  }
+  
+  .navbar a:hover,
+  .navbar a:active {
+    color: #ff9011;
+  }
+
+  .logo-img{
+    width: 80px;
+  }
