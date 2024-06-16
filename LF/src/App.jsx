@@ -9,14 +9,17 @@ function App() {
         <Header />
         <div>
           <Switch>
-            <Route path="/Notes">
-              <Notes />
+            <Route path="/HOME">
+              <App />
             </Route>
-            <Route path="/Doubt">
-              <Doubt />
+            <Route path="/LOST ITEMS">
+              <Lostitm />
             </Route>
-            <Route path="/PYQ">
-              <PYQ />
+            <Route path="/FOUND ITEMS">
+              <Founditm />
+            </Route>
+            <Route path="/REPORT">
+              <Report />
             </Route>
             <Route path="/">
               <Home />
