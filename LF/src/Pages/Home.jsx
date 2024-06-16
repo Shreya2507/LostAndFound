@@ -1,6 +1,9 @@
 import React from 'react';
 import Glass from '../Components/Glass';
 import './Home.css';
+import lossImage from '../Assets/loss.png';
+import foundImage from '../Assets/found.png';
+import findImage from '../Assets/find.png';
 
 function Home() {
   return (
@@ -8,17 +11,20 @@ function Home() {
       <Glass 
         title="Report a Lost Item"
         subtitle="Report"
-        imageSrc="path/to/lost-item-image.png"
+        imageSrc={lossImage}
+        to="/Report"
       />
       <Glass 
         title="Found an Item"
         subtitle="Report"
-        imageSrc="path/to/found-item-image.png"
+        imageSrc={foundImage}
+        to="/Founditm"
       />
       <Glass 
         title="Find Your Lost Item"
         subtitle="Browse"
-        imageSrc="path/to/view-lost-items-image.png"
+        imageSrc={findImage}
+        to="/Lostitm"
       />
     </div>
   );
