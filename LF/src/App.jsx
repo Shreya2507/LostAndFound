@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import Lostitm from './Pages/Lostitm';
 import Founditm from './Pages/Founditm';
 import Report from './Pages/Report';
+import Profile from './Pages/Profile';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/Lostitm" element={<Lostitm />} />
             <Route path="/Founditm" element={<Founditm />} />
             <Route path="/Report" element={<Report />} />
+            <Route path="/Profile" element={<Profile />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </div>

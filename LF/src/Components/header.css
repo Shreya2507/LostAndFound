@@ -6,13 +6,11 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-
   }
-
-.logo {
+  
+  .logo {
     margin: 20px;
     margin-right: auto;
-
   }
   
   .head {
@@ -39,7 +37,45 @@
   .navbar a:active {
     color: #ff9011;
   }
-
-  .logo-img{
+  
+  .logo-img {
     width: 80px;
   }
+  
+  .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  
+  .btns a {
+
+    gap: 7px;
+    position: relative;
+    display: flex;
+    padding: 5px 10px;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blue-btn {
+    background-color: #3a4affd4;
+    color: #000000;
+    border-radius: 21px;
+  }
+  
+  .blue-btn:hover {
+    background-color: #6874ffd4;
+    color: black;
+   }
+  

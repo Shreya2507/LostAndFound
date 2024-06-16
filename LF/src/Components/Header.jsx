@@ -8,11 +8,11 @@ function Header() {
   return (
     <div>
       <header className="page-header">
-        <Link to="/">
-          <div className="logo">
-            <Link to="/Home"><img alt="logo" src={ncu} className="logo-img" /></Link>
-          </div>
-        </Link>
+        <div className="logo">
+          <Link to="/Home">
+            <img alt="logo" src={ncu} className="logo-img" />
+          </Link>
+        </div>
         <div className="head">
           <nav className="navbar">
             <Link to="/Home">HOME</Link>
@@ -21,7 +21,12 @@ function Header() {
             <Link to="/Report">REPORT</Link>
           </nav>
         </div>
-        
+        <div className="btns">
+          <Link className="blue-btn" to="/Profile">
+            <img width="35" height="35" src="https://img.icons8.com/ios-filled/50/gender-neutral-user.png" alt="Profile" />
+            Profile
+          </Link>
+        </div>
       </header>
     </div>
   );
