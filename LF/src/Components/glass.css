@@ -60,18 +60,20 @@
   .cardContainer {
     display: inline-block;
     position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
   
   .card {
     position: relative;
     height: 250px;
     width: 400px;
-    background: rgba( 186, 247, 255, 0.4 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 30px );
-    -webkit-backdrop-filter: blur( 30px );
+    background: rgba(186, 247, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 25px;
-
   }
   
   .content {
@@ -93,8 +95,8 @@
     display: block;
     margin: 0 auto;
   }
-
-  .text-card{
+  
+  .text-card {
     margin: 20px;
     display: flex;
     padding: 20px;
@@ -103,42 +105,53 @@
   
   /* Balls */
   .balls {
-    position: absolute;
-    bottom: -30px; /* Adjusted to be below the card */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1; /* Ensure balls are below the card */
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: -1;
   }
   
   .ball {
+    margin-left: -300px;
     position: absolute;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
+    animation: floatAnimation 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes floatAnimation {
+    0% {
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(-20px);
+    }
   }
   
   .ball1 {
-    top: 20%;
-    left: 30%;
+    top: -55px;
+    left: -130px;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, rgba(248, 80, 50, 0.8) 0%, rgba(248, 57, 49, 0.8) 100%);
+    background: linear-gradient(90deg,#0084ff,#0ff);
   }
   
   .ball2 {
-    top: 40%;
-    left: 60%;
+    bottom: -30px;
+    left: 80px;
     width: 80px;
     height: 80px;
-    background: radial-gradient(circle, rgba(50, 80, 248, 0.8) 0%, rgba(49, 57, 248, 0.8) 100%);
+    background: linear-gradient(90deg,#00ffd9,#00ff84);
   }
   
   .ball3 {
-    top: 60%;
-    left: 40%;
+    bottom: -230px;
+    right: -30px;
     width: 120px;
     height: 120px;
-    background: radial-gradient(circle, rgba(50, 248, 80, 0.8) 0%, rgba(49, 248, 57, 0.8) 100%);
+    background: linear-gradient(90deg,#a200ff,#000dff);
   }
   
   .card::after {
