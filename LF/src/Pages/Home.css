@@ -1,17 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@1,700&family=Berkshire+Swash&family=Cardo&family=Cinzel+Decorative:wght@700&family=Handjet:wght@300&family=Handlee&family=Lato&family=Lilita+One&family=Lobster&family=Lora:ital,wght@1,500&family=Lugrasimo&family=Merienda:wght@700&family=Monoton&family=Nunito&family=Oswald:wght@700&family=Poppins&family=Roboto:wght@300&family=Shrikhand&family=Special+Elite&family=VT323&family=Victor+Mono:wght@100&family=Yatra+One&display=swap');
-
-:root {
-  --bg: #000000;
-  --clr-1: #00c2ff;
-  --clr-2: #33ff8c;
-  --clr-3: #ffc640;
-  --clr-4: #e54cff;
-
-  --blur: 1rem;
-  --fs: clamp(3rem, 8vw, 7rem);
-  --ls: clamp(-1.75px, -0.25vw, -3.5px);
-}
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One');
 
 .home {
   display: flex;
@@ -27,169 +14,111 @@
   background-size: cover;
   background-position: center;
   position: relative;
-}
-
-.content1 {
-  position: absolute;
-  top: 30%;
-  width: 100%;
-  color: #fff;
-  font-family: "Inter", "DM Sans", Arial, sans-serif;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 .title1 {
-  font-size: var(--fs);
-  font-weight: 800;
-  letter-spacing: var(--ls);
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  background: linear-gradient(45deg, var(--clr-1), var(--clr-2), var(--clr-3), var(--clr-4));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: 'Bowlby One', sans-serif;
+  color: #ed00f5;
+  text-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-.aurora {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  mix-blend-mode: darken;
-  pointer-events: none;
+.title1 span {
+  display: inline-block;
+  transform-origin: 50% 70%;
+  text-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-.aurora__item {
-  overflow: hidden;
-  position: absolute;
-  width: 60vw;
-  height: 60vw;
-  background-color: var(--clr-1);
-  border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
-  filter: blur(var(--blur));
-  mix-blend-mode: overlay;
+/* Every second span */
+.title1 span:nth-child(2n) {
+  color: #7bff00;
 }
 
-.aurora__item:nth-of-type(1) {
-  top: -50%;
-  animation: aurora-border 6s ease-in-out infinite, aurora-1 12s ease-in-out infinite alternate;
+.title1 span:nth-child(1) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .2s both;
 }
 
-.aurora__item:nth-of-type(2) {
-  background-color: var(--clr-3);
-  right: 0;
-  top: 0;
-  animation: aurora-border 6s ease-in-out infinite, aurora-2 12s ease-in-out infinite alternate;
+.title1 span:nth-child(2) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .4s both;
 }
 
-.aurora__item:nth-of-type(3) {
-  background-color: var(--clr-2);
-  left: 0;
-  bottom: 0;
-  animation: aurora-border 6s ease-in-out infinite, aurora-3 8s ease-in-out infinite alternate;
+.title1 span:nth-child(3) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .6s both;
 }
 
-.aurora__item:nth-of-type(4) {
-  background-color: var(--clr-4);
-  right: 0;
-  bottom: -50%;
-  animation: aurora-border 6s ease-in-out infinite, aurora-4 24s ease-in-out infinite alternate;
+.title1 span:nth-child(4) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) .8s both;
 }
 
-@keyframes aurora-1 {
-  0% {
-    top: 0;
-    right: 0;
+.title1 span:nth-child(5) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1s both;
+  padding: 0 20px;
+  display: block;
+}
+
+.title1 span:nth-child(6) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.2s both;
+}
+
+.title1 span:nth-child(7) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.4s both;
+}
+
+.title1 span:nth-child(8) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.6s both;
+}
+
+.title1 span:nth-child(9) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 1.8s both;
+}
+
+.title1 span:nth-child(10) {
+  animation: flipUp 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) 2s both;
+}
+
+/* ANIMATION */
+@keyframes flipUp {
+  from {
+    transform: rotateX(90deg);
   }
-  50% {
-    top: 100%;
-    right: 75%;
-  }
-  75% {
-    top: 100%;
-    right: 25%;
-  }
-  100% {
-    top: 0;
-    right: 0;
+  to {
+    transform: rotateX(0deg);
   }
 }
 
-@keyframes aurora-2 {
-  0% {
-    top: -50%;
-    left: 0%;
+/* RESPONSIVE STUFF */
+@media screen and (min-width: 400px) {
+  .title1 span {
+    font-size: 4em;
   }
-  60% {
-    top: 100%;
-    left: 75%;
-  }
-  85% {
-    top: 100%;
-    left: 25%;
-  }
-  100% {
-    top: -50%;
-    left: 0%;
+  .title1 span:nth-child(5) {
+    margin: 0;
   }
 }
 
-@keyframes aurora-3 {
-  0% {
-    bottom: 0;
-    left: 0;
+@media screen and (min-width: 600px) {
+  .title1 span {
+    font-size: 5em;
   }
-  40% {
-    bottom: 100%;
-    left: 75%;
-  }
-  65% {
-    bottom: 40%;
-    left: 50%;
-  }
-  100% {
-    bottom: 0;
-    left: 0;
+  .title1 span:nth-child(5) {
+    margin: 0;
   }
 }
 
-@keyframes aurora-4 {
-  0% {
-    bottom: -50%;
-    right: 0;
+@media screen and (min-width: 916px) {
+  .title1 span {
+    font-size: 6.2em;
   }
-  50% {
-    bottom: 0%;
-    right: 40%;
-  }
-  90% {
-    bottom: 50%;
-    right: 25%;
-  }
-  100% {
-    bottom: -50%;
-    right: 0;
-  }
-}
-
-@keyframes aurora-border {
-  0% {
-    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
-  }
-  25% {
-    border-radius: 47% 29% 39% 49% / 61% 19% 66% 26%;
-  }
-  50% {
-    border-radius: 57% 23% 47% 72% / 63% 17% 66% 33%;
-  }
-  75% {
-    border-radius: 28% 49% 29% 100% / 93% 20% 64% 25%;
-  }
-  100% {
-    border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  .title1 span:nth-child(5) {
+    display: inline-block;
+    margin: 0;
   }
 }

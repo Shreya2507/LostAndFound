@@ -9,32 +9,33 @@ function Home() {
   return (
     <>
       <div className="homepage">
-        <div className="content1">
-          <h1 className="title1">
-            Lost & Found
-            <div className="aurora">
-              <div className="aurora__item"></div>
-              <div className="aurora__item"></div>
-              <div className="aurora__item"></div>
-              <div className="aurora__item"></div>
-            </div>
-          </h1>
+        <div className="title1">
+          <span>L</span>
+          <span>O</span>
+          <span>S</span>
+          <span>T</span>
+          <span>&</span>
+          <span>F</span>
+          <span>O</span>
+          <span>U</span>
+          <span>N</span>
+          <span>D</span>
         </div>
       </div>
       <div className="home">
-        <Glass 
+        <Glass
           title="Report a Lost Item"
           subtitle="Report"
           imageSrc={lossImage}
           to="/Report"
         />
-        <Glass 
+        <Glass
           title="Found an Item"
           subtitle="Report"
           imageSrc={foundImage}
           to="/Founditm"
         />
-        <Glass 
+        <Glass
           title="Find Your Lost Item"
           subtitle="Browse"
           imageSrc={findImage}
