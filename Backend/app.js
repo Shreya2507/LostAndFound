@@ -10,12 +10,10 @@ app.use(express.json())
 
 // routes
 const lostRouter = require('./routes/lostRouter')
-// const lostItemRouter = require('./routes/lostItemRoute')
-// const foundItemRouter = require('./routes/foundItemRouter')
+const foundRouter = require('./routes/foundRouter')
 
 app.use('/api', lostRouter)
-// app.use('/api', foundItemRouter)
-
+app.use('/api', foundRouter)
 
 
 app.listen(1234, (error)=> {
