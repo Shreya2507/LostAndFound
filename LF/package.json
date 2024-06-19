@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
+    "themify-icons": "^1.0.0",
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
