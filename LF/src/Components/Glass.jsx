@@ -47,7 +47,6 @@ function Glass({ title, subtitle, imageSrc, to }) {
             src={imageSrc}
             alt={title}
           />
-          {/* Balls placed inside the card for z-index control */}
           
         </div>
       </Link>
