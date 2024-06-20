@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import data from "../dummyData/foundDummyData";
 
-export default function Found() {
+export default function Lost() {
   const [search, setSearch] = useState("Search Item");
   const [selectCategory, setSelectCategory] = useState("All");
   let [filteredData, setFilteredData] = useState(data);
