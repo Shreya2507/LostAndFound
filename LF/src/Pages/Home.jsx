@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Glass from '../Components/Glass';
 import './Home.css';
 import lossImage from '../Assets/loss.png';

@@ -1,12 +1,13 @@
-import React from 'react'
-import '../App.css';
 
-function Lostitm() {
+import "../App.css";
+import Lost from "../Components/lost";
+
+function Founditm() {
   return (
     <div>
-
+      <Lost />
     </div>
-  )
+  );
 }
 
-export default Lostitm
+export default Founditm;
