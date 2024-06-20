@@ -9,8 +9,9 @@ function Try() {
     const handleMouseMove = (e) => {
       elementsRef.current.forEach((element) => {
         if (element) {
-          let x = (window.innerWidth / 2 - e.pageX) / 20;
-          let y = (window.innerHeight / 2 - e.pageY) / 20;
+          const rect = element.getBoundingClientRect();
+          const x = (e.clientX - rect.left - rect.width / 2) / 10;
+          const y = (e.clientY - rect.top - rect.height / 2) / 10;
           element.style.transform = `translate(${x}px, ${y}px)`;
         }
       });
