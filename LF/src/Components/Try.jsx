@@ -4,9 +4,14 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function Try() {
   return (
-    <div>
+    <div className='Homepagetry'>
       <h1 className='title'>LOST & FOUND</h1>
       <DotLottieReact className='mobile'
+        src="https://lottie.host/d2bef094-776e-4001-93da-2da36cff0c8b/mhF72hsKQA.lottie"
+        loop
+        autoplay
+      />
+            <DotLottieReact className='mobile1'
         src="https://lottie.host/d2bef094-776e-4001-93da-2da36cff0c8b/mhF72hsKQA.lottie"
         loop
         autoplay
@@ -57,6 +62,20 @@ function Try() {
         loop
         autoplay
       />
+
+<DotLottieReact className='pen1'
+        src="https://lottie.host/26899507-0eb4-4999-80fe-fabe199d2d24/vlvwV7Krke.lottie"
+        loop
+        autoplay
+      />
+
+<DotLottieReact className='pen2'
+        src="https://lottie.host/26899507-0eb4-4999-80fe-fabe199d2d24/vlvwV7Krke.lottie"
+        loop
+        autoplay
+      />
+
+
 
     </div>
   );

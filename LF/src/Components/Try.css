@@ -1,12 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
+.Homepagetry{
+position: relative;
+display: block;
+height: 80vh;
+}
+
 h1.title{
     font-family: "Fredericka the Great", serif;
     font-size: 100px;
     text-align: center;
-    
+    z-index: 1000;
+    margin-top: 200px;
 }
 
-.laptop, .keys , .Wallet , .bottle, .mobile ,.headphone , .watch , .Bag , .pen{
+.laptop, .keys , .Wallet , .bottle, .mobile ,.mobile1 ,.headphone , .watch , .Bag , .pen , .pen1 , .pen2 {
     width: 300px;
+    display: flex;
+    position: absolute;
+}
+
+.laptop{
+margin-left: 10px;
+margin-top:90px ;
+}
+
+.keys{
+    left: 430px;
+top: -150px;
+}
+.Wallet{
+    left: 830px;
+top: 70px;
+}
+
+.Bag{
+    left: 130px;
+top: 70px;
+}
+
+.mobile{
+    margin-left:-60px ;
+    margin-top: -170px;
+}
+
+.mobile1{
+    margin-left:900px ;
+    margin-top: 100px;
+}
+
+.headphone{
+    margin-left: 500px;
+margin-top: 80px;
+}
+
+.watch{
+    left: 930px;
+top: -150px;
+}
+
+.pen{
+    margin-left:-100px ;
+margin-top: -300px;
+}
+
+.pen1{
+    margin-left:-10px ;
+margin-top: -50px;
+}
+
+.pen2{
+    margin-left:1200px ;
+margin-top: -200px;
+}
+
+.bottle{
+    margin-left:1200px ;
+    margin-top: 100px;
 }
