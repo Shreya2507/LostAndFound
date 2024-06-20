@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+h1.title{
+    font-family: "Fredericka the Great", serif;
+    font-size: 100px;
+    text-align: center;
+    
+}
+
+.laptop, .keys , .Wallet , .bottle, .mobile ,.headphone , .watch , .Bag , .pen{
+    width: 300px;
+}

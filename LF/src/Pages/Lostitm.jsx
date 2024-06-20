@@ -4,7 +4,7 @@ import '../App.css';
 function Lostitm() {
   return (
     <div>
-      
+
     </div>
   )
 }

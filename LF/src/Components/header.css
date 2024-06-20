@@ -20,7 +20,8 @@
   }
   
   .navbar {
-    display: inline-block;
+    display: inline-block !important;
+    justify-content: center !important;
   }
   
   .navbar a {
@@ -32,6 +33,7 @@
     transition: 0.2s;
     cursor: pointer;
     font-family: 'Poppins';
+    justify-content: center;
   }
   
   .navbar a:hover,
