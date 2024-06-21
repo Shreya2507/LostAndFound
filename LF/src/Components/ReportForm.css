@@ -45,7 +45,7 @@ line-height: normal;
   
   .input {
     border-radius: 15px;
-border: 4px solid #FFF;
+border: 2px solid #bbb6b665;
 background: linear-gradient(132deg, rgba(255, 255, 255, 0.20) 18.17%, rgba(255, 255, 255, 0.06) 52.35%, rgba(176, 176, 176, 0.04) 93.52%);
 box-shadow: 2px 4px 16.1px 6px rgba(0, 0, 0, 0.12);
 backdrop-filter: blur(12.5px);
@@ -57,7 +57,7 @@ backdrop-filter: blur(12.5px);
     outline: none;
     font-size: 1rem;
   }
-  
+
   .textarea {
     padding: 10px 15px;
     border-radius: 16px;
