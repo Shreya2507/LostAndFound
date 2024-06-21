@@ -14,7 +14,7 @@ export default function Found() {
           data.filter((item) => item.itemStatus === selectCategory)
         );
         console.log(filteredData,selectCategory);
-      }, [selectCategory]);
+      }, [filteredData, selectCategory]);
       
   function handleSearch() {
     console.log(data[1]);
@@ -90,7 +90,7 @@ export default function Found() {
         </div>
         <div className="w-screen h-[1px] bg-black mt-10 mb-5"></div>
         <section className="w-full flex justify-end">
-          <form onSubmit={(e) => sortItem()}>
+          <form onSubmit={() => sortItem()}>
             <select
               className="px-3 py-1 font-medium"
               name=""
