@@ -1,0 +1,13 @@
+:root {
+  --primary:#5c6ac4;
+  /* bg-transparent outline-none */
+}
+
+.bg-secondary{
+    background-color: var(--primary);
+} 
+
+.input-box{
+    background: transparent;
+    outline: none;
+}

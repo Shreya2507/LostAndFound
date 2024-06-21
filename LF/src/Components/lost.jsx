@@ -34,7 +34,7 @@ export default function Lost() {
               handleSearch();
             }}
           >
-            <span className="flex justify-center items-center gap-1 bg-secondary py-1 px-3 rounded-xl">
+            <span className="flex justify-center items-center gap-1 bg-blue-100 py-1 px-3 rounded-xl">
               <input
                 type="text"
                 value={search}
@@ -47,7 +47,7 @@ export default function Lost() {
           </form>
         </div>
         <div className=" flex gap-6">
-          <button className="flex flex-col items-center justify-center bg-secondary rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="flex flex-col items-center justify-center bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
             <img
               src="./src/Assets/image 20.png"
               alt="error"
@@ -55,7 +55,7 @@ export default function Lost() {
             />
             <h1 className="text-center my-1 mt-2 font-semibold">Specs</h1>
           </button>
-          <button className="flex flex-col items-center justify-center bg-secondary rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="flex flex-col items-center justify-center bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
             <img
               src="./src/Assets/image 21.png"
               alt="error"
@@ -63,7 +63,7 @@ export default function Lost() {
             />
             <h1 className="text-center my-1 mt-2 font-semibold">Specs</h1>
           </button>
-          <button className="flex flex-col items-center justify-center bg-secondary rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="flex flex-col items-center justify-center bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
             <img
               src="./src/Assets/image 29.png"
               alt="error"
@@ -71,7 +71,7 @@ export default function Lost() {
             />
             <h1 className="text-center my-1 mt-2 font-semibold">Specs</h1>
           </button>
-          <button className="flex flex-col items-center justify-center bg-secondary rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="flex flex-col items-center justify-center bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
             <img
               src="./src/Assets/image 31.png"
               alt="error"
@@ -79,7 +79,7 @@ export default function Lost() {
             />
             <h1 className="text-center my-1 mt-2 font-semibold">Specs</h1>
           </button>
-          <button className="flex flex-col items-center justify-center bg-secondary rounded-lg h-[100px] w-[100px]  p-3 hover:opacity-60 cursor-pointer">
+          <button className="flex flex-col items-center justify-center bg-blue-100 rounded-lg h-[100px] w-[100px]  p-3 hover:opacity-60 cursor-pointer">
             <img
               src="./src/Assets/image 37.png"
               alt="error"
@@ -112,7 +112,7 @@ export default function Lost() {
           {filteredData.map((item) => (
             <div
               key={item.id}
-              className="relative flex gap-5 border-2 bg-secondary border-secondary shadow-md rounded-lg"
+              className="relative flex gap-5 border-2 bg-blue-100 border-secondary shadow-md rounded-lg"
             >
               <section>
                 <img src="./src/Assets/Rectangle 14.png" alt="error" />
