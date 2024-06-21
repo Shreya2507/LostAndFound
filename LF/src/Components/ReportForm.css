@@ -4,6 +4,8 @@ Form.container {
     padding: 16px;
     height: 160vh;
     text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
   
   .form-wrapper {
