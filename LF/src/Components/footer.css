@@ -149,11 +149,9 @@
     font-size: 18px;
   }
   
-  footer{
-    h1, h2, h3, h4, h5, h6 {
+  footer h1, h2, h3, h4, h5, h6 {
     color: #4b505e;
   }
-}
   .new_footer_top .f_widget.about-widget .f_list li a {
     color: #6a7695;
   }
