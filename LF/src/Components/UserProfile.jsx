@@ -25,6 +25,7 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
+      
       <div className="posted-detail">
         <h3 className="posted-heading">Posted</h3>
         <table className="posts-table">
