@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import './ReportForm.css';
 
 export default function ReportForm() {
@@ -16,7 +16,7 @@ export default function ReportForm() {
     setDesc("Add description..");
   }
 
-  function handleImage(params) {
+  function handleImage() {
     // handle image upload
   }
 
