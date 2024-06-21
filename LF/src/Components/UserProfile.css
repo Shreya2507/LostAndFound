@@ -127,7 +127,7 @@ thead{
 }
 
 .profile-btn {
-  background: black;
+  background: rgb(93, 93, 93);
   color: white;
   font-weight: 600;
   position: relative;
@@ -135,6 +135,8 @@ thead{
   margin-right: 10px;
   cursor: pointer;
   border-radius: 8px;
+  font-family: 'Poppins';
+  font-weight: 400;
 }
 
 .profile-btn:before {

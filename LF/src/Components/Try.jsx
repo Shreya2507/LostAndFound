@@ -49,14 +49,17 @@ function Try() {
     <div className='Homepagetry'>
       <h1 className='title'>LOST & FOUND</h1>
       {lotties.map((lottie, index) => (
-        <DotLottieReact
+        <div
           key={index}
           className={lottie.className}
-          src={lottie.src}
-          loop
-          autoplay
           ref={(el) => (elementsRef.current[index] = el)}
-        />
+        >
+          <DotLottieReact
+            src={lottie.src}
+            loop
+            autoplay
+          />
+        </div>
       ))}
     </div>
   );
