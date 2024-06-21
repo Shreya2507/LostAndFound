@@ -26,7 +26,7 @@ export default function ReportForm() {
 
   return (
     <div className="Form">
-    <div className="container">
+    <div className="container1">
       <div className="form-wrapper">
         <h1 className="form-title">REPORT A LOST ITEM</h1>
         <form

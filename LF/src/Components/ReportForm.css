@@ -1,11 +1,9 @@
-Form.container {
+.container1 {
     display: flex;
     justify-content: center;
     padding: 16px;
-    height: 160vh;
+    height: 120vh;
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 60px;
   }
   
   .form-wrapper {
@@ -132,8 +130,8 @@ Form.container {
     }
     
     .ballz1 {
-    top: -620px;
-    /* left: -430px; */
+      top: 600px;
+      left: -200px;
     width: 100px;
     height: 100px;
     background: linear-gradient(90deg,#0084ff,#0ff);
@@ -141,8 +139,8 @@ Form.container {
     
     .ballz2 {
 
-    bottom: -80px;
-    left: 590px;
+      bottom: -400px;
+      left: -200px;
     width: 80px;
     height: 80px;
     background: linear-gradient(90deg,#00ffd9,#00ff84);
