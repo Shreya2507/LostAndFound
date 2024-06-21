@@ -26,7 +26,7 @@ export default function Lost() {
     <>
       <div className=" flex flex-col mx-1 items-center p-4 min-h-screen pt-28 ">
         <div className="mb-10">
-          <h1 className="text-3xl font-semibold ">Found Inventory</h1>
+          <h1 className="text-3xl font-semibold ">Lost Inventory</h1>
           <h6 className="mt-1 mb-3 text-sm">List of items that are found</h6>
           <form
             onSubmit={(e) => {
