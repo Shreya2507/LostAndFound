@@ -1,4 +1,5 @@
-
+import React from 'react';
+import Try from '../Components/Try';
 import Glass from '../Components/Glass';
 import './Home.css';
 import lossImage from '../Assets/loss.png';
@@ -9,21 +10,10 @@ function Home() {
   return (
     <>
       <div className="homepage">
-        <div className="title1">
-          <span>L</span>
-          <span>O</span>
-          <span>S</span>
-          <span>T</span>
-          <span>&</span>
-          <span>F</span>
-          <span>O</span>
-          <span>U</span>
-          <span>N</span>
-          <span>D</span>
-        </div>
+      <Try />
       </div>
-      <div className="home">
-        <Glass
+<div className="home">
+<Glass
           title="Report a Lost Item"
           subtitle="Report"
           imageSrc={lossImage}
@@ -41,7 +31,8 @@ function Home() {
           imageSrc={findImage}
           to="/Lostitm"
         />
-      </div>
+    </div>
+
     </>
   );
 }

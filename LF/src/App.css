@@ -16,6 +16,8 @@
     width: 100%;
     scroll-behavior: smooth;
     position: relative;
+    overflow-x: hidden;
+  
   }
 
   
