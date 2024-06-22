@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ncu from '../Assets/ncu.png';
 import '../App.css';
 import './header.css';
+import ToggleSwitch from './ToggleSwitch';
 
 function Header() {
   return (
@@ -21,6 +22,7 @@ function Header() {
             <Link to="/Report">REPORT</Link>
           </nav>
         </div>
+        <ToggleSwitch />
         <div className="btns">
           <Link className="blue-btn" to="/Profile">
             <img width="35" height="35" src="https://img.icons8.com/ios-filled/50/gender-neutral-user.png" alt="Profile" />

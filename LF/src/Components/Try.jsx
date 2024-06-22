@@ -43,7 +43,7 @@ function Try() {
     { className: 'pen2', src: 'https://lottie.host/26899507-0eb4-4999-80fe-fabe199d2d24/vlvwV7Krke.lottie' },
     { className: 'pendrive', src: 'https://lottie.host/aa343f22-d50d-42f5-8ee0-d566706c3a33/ccWGqN7KlP.lottie' },
     { className: 'pendrive1', src: 'https://lottie.host/aa343f22-d50d-42f5-8ee0-d566706c3a33/ccWGqN7KlP.lottie' },
-    { className: 'scale', src: 'https://lottie.host/aa343f22-d50d-42f5-8ee0-d566706c3a33/ccWGqN7KlP.lottie' },
+    { className: 'scale', src: 'https://lottie.host/4c3faa8e-b187-48e5-acd1-395625ea6ed7/yHliLsqju6.lottie' },
   ];
 
   return (
