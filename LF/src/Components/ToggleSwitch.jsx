@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './switch.css';
 
 const ToggleSwitch = () => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   useEffect(() => {
     if (isChecked) {
