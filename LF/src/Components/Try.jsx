@@ -48,6 +48,7 @@ function Try() {
 
   return (
     <div className='Homepagetry'>
+
       <h1 className='title'>LOST & FOUND</h1>
       {lotties.map((lottie, index) => (
         <div

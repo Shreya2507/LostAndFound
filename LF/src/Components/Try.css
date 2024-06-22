@@ -3,9 +3,10 @@
 .Homepagetry {
     position: relative;
     display: block;
-    height: 80vh;
+    height: 100vh; /* Adjusted to cover the full viewport height */
     width: 100%;
-}
+    overflow: hidden; /* Ensures the background animation does not cause scroll bars */
+  }
 
 h1.title {
     font-family: "Fredericka the Great", serif;
