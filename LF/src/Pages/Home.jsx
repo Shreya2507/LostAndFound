@@ -14,7 +14,7 @@ function Home() {
       </div>
 <div className="home">
 <Glass
-          title="Report a Lost Item"
+          title="Lost an Item"
           subtitle="Report"
           imageSrc={lossImage}
           to="/Report"
@@ -23,7 +23,7 @@ function Home() {
           title="Found an Item"
           subtitle="Report"
           imageSrc={foundImage}
-          to="/Founditm"
+          to="/Report"
         />
         <Glass
           title="Find Your Lost Item"

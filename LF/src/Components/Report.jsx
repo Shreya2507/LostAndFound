@@ -1,41 +1,87 @@
-import { useState } from "react";
-import "./ReportForm.css";
+import React, { useState } from "react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import './ReportForm.css';
 
 export default function ReportForm() {
+  const [reportType, setReportType] = useState("lost");
   const [location, setLocation] = useState("Location");
   const [itemName, setItemName] = useState("");
   const [category, setCategory] = useState("Category");
   const [date, setDate] = useState("");
   const [desc, setDesc] = useState("Add description..");
+  const [images, setImages] = useState([]);
 
   function clearForm() {
+    setReportType("lost");
     setLocation("Location");
     setCategory("Category");
     setItemName("");
     setDate("");
     setDesc("Add description..");
+    setImages([]);
   }
 
-  function handleImage() {
-    // handle image upload
+  function handleImage(e) {
+    const files = Array.from(e.target.files);
+    const imageUrls = files.map(file => URL.createObjectURL(file));
+    setImages(imageUrls);
   }
 
-  function handleReport(report) {
-    console.log(report);
+  async function handleReport(e) {
+    e.preventDefault();
+    const report = {
+      location,
+      itemName,
+      category,
+      date,
+      description: desc,
+      images
+    };
+
+    const endpoint = reportType === "lost" ? 'http://localhost:5000/api/reports/lost' : 'http://localhost:5000/api/reports/found';
+
+    try {
+      await axios.post(endpoint, report);
+      toast.success("Item reported successfully!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+      clearForm();
+    } catch (error) {
+      toast.error("There was an error submitting the report!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
   }
 
   return (
     <div className="Form">
+      <ToastContainer />
       <div className="container1">
         <div className="form-wrapper">
-          <h1 className="form-title">REPORT A LOST ITEM</h1>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleReport();
-            }}
-            className="form"
-          >
+          <h1 className="form-title">REPORT AN ITEM</h1>
+          <form onSubmit={handleReport} className="form">
+            <div className="checkbox">
+              <label>
+                <input
+                  type="radio"
+                  value="lost"
+                  checked={reportType === "lost"}
+                  onChange={() => setReportType("lost")}
+                />
+                Lost
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="found"
+                  checked={reportType === "found"}
+                  onChange={() => setReportType("found")}
+                />
+                Found
+              </label>
+            </div>
             <input
               type="text"
               value={itemName}
@@ -50,7 +96,7 @@ export default function ReportForm() {
               onChange={(e) => setLocation(e.target.value)}
               className="input"
             >
-              <option value={location} disabled>
+              <option value="Location" disabled>
                 Location
               </option>
               <option value="sportRoom">Sport Room</option>
@@ -65,7 +111,7 @@ export default function ReportForm() {
               onChange={(e) => setCategory(e.target.value)}
               className="input"
             >
-              <option value={category} disabled>
+              <option value="Category" disabled>
                 Category
               </option>
               <option value="electronic">Electronic</option>
@@ -85,7 +131,7 @@ export default function ReportForm() {
               type="file"
               id="file"
               multiple
-              onSubmit={handleImage}
+              onChange={handleImage}
               className="input"
             />
             <textarea
@@ -95,20 +141,10 @@ export default function ReportForm() {
               rows="5"
               className="textarea"
             ></textarea>
-            <div className="checkbox">
-              <span>
-                <input type="checkbox" name="" id="foundCheck" />
-                Found Item
-              </span>
-              <span>
-                <input type="checkbox" name="" id="lostCheck" />
-                Lost Item
-              </span>
-            </div>
             <div className="button-group">
               <input
                 type="submit"
-                onClick={handleReport}
+                value="Submit"
                 className="button21 submit-button"
               />
               <input
