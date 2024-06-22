@@ -3,9 +3,10 @@
 .Homepagetry {
     position: relative;
     display: block;
-    height: 80vh;
+    height: 100vh; /* Adjusted to cover the full viewport height */
     width: 100%;
-}
+    overflow: hidden; /* Ensures the background animation does not cause scroll bars */
+  }
 
 h1.title {
     font-family: "Fredericka the Great", serif;
@@ -15,7 +16,7 @@ h1.title {
     margin-top: 200px;
 }
 
-.laptop, .keys, .Wallet, .Wallet1, .bottle, .mobile, .mobile1, .headphone, .watch, .Bag, .pen, .pen1, .pen2, .pendrive , .cloth, .headphone1, .pendrive1, .bottle1 {
+.laptop, .keys, .Wallet, .Wallet1, .bottle, .mobile, .mobile1, .headphone, .watch, .Bag, .pen, .pen1, .pen2, .pendrive , .cloth, .headphone1, .pendrive1, .bottle1 ,.scale {
     width: 300px;
     display: flex;
     position: absolute;
@@ -121,4 +122,9 @@ h1.title {
 .cloth {
     margin-left: 700px;
     margin-top: -300px;
+}
+
+.scale{
+    margin-left: 1300px;
+    margin-top: 40px;
 }

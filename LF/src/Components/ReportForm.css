@@ -141,6 +141,7 @@ input[type="radio"] {
   }
 }
 
+<<<<<<< HEAD
 .ballz1 {
   top: 600px;
   left: -200px;
@@ -156,3 +157,11 @@ input[type="radio"] {
   height: 80px;
   background: linear-gradient(90deg,#00ffd9,#00ff84);
 }
+=======
+      bottom: -400px;
+      left: -200px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(90deg,#00ffd9,#00ff84);
+    }
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e

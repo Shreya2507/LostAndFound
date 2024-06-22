@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+=======
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
 import './ReportForm.css';
 
 export default function ReportForm() {
@@ -57,6 +60,7 @@ export default function ReportForm() {
 
   return (
     <div className="Form">
+<<<<<<< HEAD
       <ToastContainer />
       <div className="container1">
         <div className="form-wrapper">
@@ -82,6 +86,18 @@ export default function ReportForm() {
                 Found
               </label>
             </div>
+=======
+      <div className="container1 dark-mode">
+        <div className="form-wrapper">
+          <h1 className="form-title">REPORT A LOST ITEM</h1>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleReport();
+            }}
+            className="form"
+          >
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
             <input
               type="text"
               value={itemName}
@@ -96,7 +112,11 @@ export default function ReportForm() {
               onChange={(e) => setLocation(e.target.value)}
               className="input"
             >
+<<<<<<< HEAD
               <option value="Location" disabled>
+=======
+              <option value={location} disabled>
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
                 Location
               </option>
               <option value="sportRoom">Sport Room</option>
@@ -111,7 +131,11 @@ export default function ReportForm() {
               onChange={(e) => setCategory(e.target.value)}
               className="input"
             >
+<<<<<<< HEAD
               <option value="Category" disabled>
+=======
+              <option value={category} disabled>
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
                 Category
               </option>
               <option value="electronic">Electronic</option>
@@ -131,7 +155,11 @@ export default function ReportForm() {
               type="file"
               id="file"
               multiple
+<<<<<<< HEAD
               onChange={handleImage}
+=======
+              onSubmit={handleImage}
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
               className="input"
             />
             <textarea
@@ -144,8 +172,14 @@ export default function ReportForm() {
             <div className="button-group">
               <input
                 type="submit"
+<<<<<<< HEAD
                 value="Submit"
                 className="button21 submit-button"
+=======
+                onClick={handleReport}
+                className="button21 submit-button"
+                value="Submit"
+>>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
               />
               <input
                 type="button"
