@@ -81,13 +81,13 @@
   color: black;
 }
 
-/* Dark Mode Styles */
+/* Dark mode styles */
 body.dark .page-header {
-  background-color: #1e1e1e;
+  background-color: #1a1a1a;
 }
 
 body.dark .navbar a {
-  color: #c7c7c7;
+  color: #ffffff;
 }
 
 body.dark .navbar a:hover,
@@ -95,12 +95,12 @@ body.dark .navbar a:active {
   color: #ff9011;
 }
 
-body.dark .btns a {
+body.dark .blue-btn {
   background-color: #3a4affd4;
   color: #ffffff;
 }
 
-body.dark .btns a:hover {
+body.dark .blue-btn:hover {
   background-color: #6874ffd4;
-  color: #ffffff;
+  color: white;
 }
