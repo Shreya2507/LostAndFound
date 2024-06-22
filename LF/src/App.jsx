@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import './App.css';
-import Header from './Components/Header';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'animate.css/animate.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import Lostitm from './Pages/Lostitm';
-import Founditm from './Pages/Founditm';
-import Report from './Pages/Report';
-import Profile from './Pages/Profile';
-import Footer from './Components/Footer';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-=======
-import React from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -29,7 +11,6 @@ import Report from "./Pages/Report";
 import Profile from "./Pages/Profile";
 import Footer from "./Components/Footer";
 import { useEffect } from "react";
->>>>>>> 8428b238f8a6752f3381a837f7b17a21f262cf9e
 
 function App() {
 
@@ -41,7 +22,6 @@ function App() {
   }, []);
   return (
     <div>
-      <ToastContainer />
       <Router>
         <Header />
         <div>
