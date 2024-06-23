@@ -5,6 +5,11 @@ import animation1 from '../Assets/1.gif';
 import animation2 from '../Assets/2.gif';
 import animation3 from '../Assets/3.gif';
 import animation4 from '../Assets/4.gif';
+import animation5 from '../Assets/5.gif';
+import animation6 from '../Assets/6.gif';
+import animation7 from '../Assets/7.gif';
+import animation8 from '../Assets/8.gif';
+import animation9 from '../Assets/9.gif';
 
 const LottieComponent = ({ className, animationData, index, elementsRef }) => {
   const handleMouseMove = useCallback((e) => {
@@ -39,6 +44,11 @@ const Try = () => {
     { className: 'animation2', animationData: animation2 },
     { className: 'animation3', animationData: animation3 },
     { className: 'animation4', animationData: animation4 },
+    { className: 'animation4', animationData: animation5 },
+    { className: 'animation4', animationData: animation6 },
+    { className: 'animation4', animationData: animation7 },
+    { className: 'animation4', animationData: animation8 },
+    { className: 'animation4', animationData: animation9 },
   ];
 
   return (

@@ -21,7 +21,13 @@ h1.title {
 .animation1,
 .animation2,
 .animation3,
-.animation4 {
+.animation4,
+.animation5,
+.animation6,
+.animation7,
+.animation8,
+.animation4
+ {
   position: absolute; /* Ensures animations are positioned relative to the parent */
   transform: translate(-50%, -50%); /* Centers animations precisely */
   z-index: 10;
@@ -46,6 +52,37 @@ h1.title {
 }
 
 .animation4 {
+  top: 75%; /* Positioning from the top */
+  left: 50%; /* Positioning from the left */
+  width: 300px; /* Adjust width as needed */
+}
+
+
+.animation5 {
+  top: 75%; /* Positioning from the top */
+  left: 50%; /* Positioning from the left */
+  width: 300px; /* Adjust width as needed */
+}
+
+.animation6 {
+  top: 75%; /* Positioning from the top */
+  left: 50%; /* Positioning from the left */
+  width: 300px; /* Adjust width as needed */
+}
+
+.animation7 {
+  top: 75%; /* Positioning from the top */
+  left: 50%; /* Positioning from the left */
+  width: 300px; /* Adjust width as needed */
+}
+
+.animation8 {
+  top: 75%; /* Positioning from the top */
+  left: 50%; /* Positioning from the left */
+  width: 300px; /* Adjust width as needed */
+}
+
+.animation9 {
   top: 75%; /* Positioning from the top */
   left: 50%; /* Positioning from the left */
   width: 300px; /* Adjust width as needed */
