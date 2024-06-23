@@ -11,7 +11,7 @@ import animation7 from '../Assets/7.gif';
 import animation8 from '../Assets/8.gif';
 import animation9 from '../Assets/9.gif';
 
-const LottieComponent = ({ className, animationData, index, elementsRef }) => {
+const GifComponent = ({ className, animationData, index, elementsRef }) => {
   const handleMouseMove = useCallback((e) => {
     const element = elementsRef.current[index];
     if (element) {
@@ -39,26 +39,26 @@ const LottieComponent = ({ className, animationData, index, elementsRef }) => {
 const Try = () => {
   const elementsRef = useRef([]);
 
-  const lotties = [
+  const gifs = [
     { className: 'animation1', animationData: animation1 },
     { className: 'animation2', animationData: animation2 },
     { className: 'animation3', animationData: animation3 },
     { className: 'animation4', animationData: animation4 },
-    { className: 'animation4', animationData: animation5 },
-    { className: 'animation4', animationData: animation6 },
-    { className: 'animation4', animationData: animation7 },
-    { className: 'animation4', animationData: animation8 },
-    { className: 'animation4', animationData: animation9 },
+    { className: 'animation5', animationData: animation5 },
+    { className: 'animation6', animationData: animation6 },
+    { className: 'animation7', animationData: animation7 },
+    { className: 'animation8', animationData: animation8 },
+    { className: 'animation9', animationData: animation9 },
   ];
 
   return (
     <div className='Homepagetry'>
       <h1 className='title'>LOST & FOUND</h1>
-      {lotties.map((lottie, index) => (
-        <LottieComponent
+      {gifs.map((gif, index) => (
+        <GifComponent
           key={index}
-          className={lottie.className}
-          animationData={lottie.animationData}
+          className={gif.className}
+          animationData={gif.animationData}
           index={index}
           elementsRef={elementsRef}
         />

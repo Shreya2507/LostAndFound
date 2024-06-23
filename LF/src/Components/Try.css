@@ -26,64 +26,62 @@ h1.title {
 .animation6,
 .animation7,
 .animation8,
-.animation4
- {
+.animation9 {
   position: absolute; /* Ensures animations are positioned relative to the parent */
   transform: translate(-50%, -50%); /* Centers animations precisely */
   z-index: 10;
 }
 
 .animation1 {
-  top: 50%; /* Positioning from the top */
-  left: 25%; /* Positioning from the left */
-  width: 400px; /* Adjust width as needed */
+  top: 20%; /* Positioning from the top */
+  left: 15%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation2 {
-  top: 25%; /* Positioning from the top */
-  right: 25%; /* Positioning from the right */
-  width: 300px; /* Adjust width as needed */
+  top: 30%; /* Positioning from the top */
+  left: 70%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation3 {
-  bottom: 25%; /* Positioning from the bottom */
-  right: 25%; /* Positioning from the right */
-  width: 300px; /* Adjust width as needed */
+  top: 70%; /* Positioning from the top */
+  left: 40%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation4 {
-  top: 75%; /* Positioning from the top */
-  left: 50%; /* Positioning from the left */
-  width: 300px; /* Adjust width as needed */
+  top: 50%; /* Positioning from the top */
+  left: 85%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
-
 .animation5 {
-  top: 75%; /* Positioning from the top */
+  top: 10%; /* Positioning from the top */
   left: 50%; /* Positioning from the left */
-  width: 300px; /* Adjust width as needed */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation6 {
-  top: 75%; /* Positioning from the top */
-  left: 50%; /* Positioning from the left */
-  width: 300px; /* Adjust width as needed */
+  top: 80%; /* Positioning from the top */
+  left: 25%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation7 {
-  top: 75%; /* Positioning from the top */
-  left: 50%; /* Positioning from the left */
-  width: 300px; /* Adjust width as needed */
+  top: 60%; /* Positioning from the top */
+  left: 10%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation8 {
-  top: 75%; /* Positioning from the top */
-  left: 50%; /* Positioning from the left */
-  width: 300px; /* Adjust width as needed */
+  top: 40%; /* Positioning from the top */
+  left: 30%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
 
 .animation9 {
-  top: 75%; /* Positioning from the top */
-  left: 50%; /* Positioning from the left */
-  width: 300px; /* Adjust width as needed */
+  top: 20%; /* Positioning from the top */
+  left: 80%; /* Positioning from the left */
+  width: 200px; /* Adjust width as needed */
 }
