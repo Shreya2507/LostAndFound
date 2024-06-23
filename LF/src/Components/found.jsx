@@ -1,107 +1,107 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import data from "../dummyData/foundDummyData";
-import  './Found.css'
+import "./Found.css";
 
 export default function Found() {
   const [search, setSearch] = useState("Search Item");
   const [selectCategory, setSelectCategory] = useState("All");
-  let [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState(data);
 
   useEffect(() => {
-    selectCategory === "All"
-      ? setFilteredData(data)
-      : setFilteredData(
-          data.filter((item) => item.itemStatus === selectCategory)
-        );
-        console.log(filteredData,selectCategory);
-      }, [filteredData, selectCategory]);
-      
+    setFilteredData(
+      selectCategory === "All"
+        ? data
+        : data.filter((item) => item.itemStatus === selectCategory)
+    );
+  }, [selectCategory]);
+
   function handleSearch() {
     console.log(data[1]);
   }
+
   function sortItem(e) {
     e.preventDefault();
   }
+
   return (
     <>
-      <div className=" flex flex-col mx-1 items-center p-4 min-h-screen pt-28 ">
-        <div className="mb-10">
-          <h1 className="text-3xl font-semibold ">Found Inventory</h1>
-          <h6 className="mt-1 mb-3 text-sm">List of items that are found</h6>
+      <div className="container">
+        <div className="header">
+          <h1 className="found-title">Found Inventory</h1>
+          <h6 className="subtitle">List of items that are found</h6>
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSearch();
             }}
           >
-            <span className="flex justify-center items-center gap-1 dark:bg-[#fff] bg-blue-100 py-1 px-3 rounded-xl">
+            <span className="searchForm">
               <input
                 type="text"
-                value={search}
+                // value={search}
+                placeholder={search}
                 onChange={(e) => setSearch(e.target.value)}
                 id="search"
-                className="input-box"
+                className="inputBox"
               />
               <FaSearch onClick={handleSearch} />
             </span>
           </form>
         </div>
-        <div className=" flex gap-6">
-          <button className="flex flex-col items-center justify-center dark:bg-[#212529]  bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+        <div className="buttonContainer">
+          <button className="button">
             <img
               src="./src/Assets/image 20.png"
-              alt="error"
-              className="h-10 "
+              alt="Specs"
+              className="img-btn"
             />
-            <h1 className="text-center my-1 mt-2 font-semibold">Specs</h1>
+            <h1 className="search-btn">Specs</h1>
           </button>
-          <button className="flex flex-col items-center justify-center dark:bg-[#212529] bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="button">
             <img
               src="./src/Assets/image 21.png"
-              alt="error"
-              className="h-10 "
+              alt="Key"
+              className="img-btn"
             />
-            <h1 className="text-center my-1 mt-2 font-semibold">Key</h1>
+            <h1 className="search-btn">Key</h1>
           </button>
-          <button className="flex flex-col items-center justify-center dark:bg-[#212529] bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="button">
             <img
               src="./src/Assets/image 29.png"
-              alt="error"
-              className="h-10 "
+              alt="Bag"
+              className="img-btn"
             />
-            <h1 className="text-center my-1 mt-2 font-semibold">Bag</h1>
+            <h1 className="search-btn">Bag</h1>
           </button>
-          <button className="flex flex-col items-center justify-center dark:bg-[#212529] bg-blue-100 rounded-lg h-[100px] w-[100px] p-3 hover:opacity-60 cursor-pointer">
+          <button className="button">
             <img
               src="./src/Assets/image 31.png"
-              alt="error"
-              className="h-10 "
+              alt="Mobile"
+              className="img-btn"
             />
-            <h1 className="text-center my-1 mt-2 font-semibold">Mobile</h1>
+            <h1 className="search-btn">Mobile</h1>
           </button>
-          <button className="flex flex-col items-center justify-center dark:bg-[#212529] bg-blue-100 rounded-lg h-[100px] w-[100px]  p-3 hover:opacity-60 cursor-pointer">
+          <button className="button">
             <img
               src="./src/Assets/image 37.png"
-              alt="error"
-              className="h-10 "
+              alt="Purse"
+              className="img-btn"
             />
-            <h1 className="text-center my-1 mt-2 font-semibold">Purse</h1>
+            <h1 className="search-btn">Purse</h1>
           </button>
         </div>
-        <div className="w-screen h-[1px] bg-black mt-10 mb-5"></div>
-        <section className="w-full flex justify-end">
+        <div className="divider"></div>
+        <section className="sortForm">
           <form onSubmit={() => sortItem()}>
             <select
-              className="px-3 py-1 font-medium"
+              className="selectBox"
               name=""
               id="sortId"
               value={selectCategory}
               onChange={(e) => setSelectCategory(e.target.value)}
             >
-              <option value="All" >
-                ALL
-              </option>
+              <option value="All">ALL</option>
               <option value="latest">Latest</option>
               <option value="oldest">Oldest</option>
               <option value="claimed">Claimed</option>
@@ -109,22 +109,23 @@ export default function Found() {
             </select>
           </form>
         </section>
-        <div className="flex gap-5 max-w-4xl flex-col mt-5 ">
+        <div className="itemList">
           {filteredData.map((item) => (
             <div
               key={item.id}
-              className="flex gap-4 dark:bg-[#212529] dark:text-white bg-blue-100  shadow-md rounded-lg"
+              className={`itemCard ${item.dark ? "dark" : ""}`}
             >
-              <section >
-                <img src="./src/Assets/Rectangle 14.png"  className="w-[400px]" alt="error" />
+              <section>
+                <img
+                  src="./src/Assets/Rectangle 14.png"
+                  className="itemImage"
+                  alt="error"
+                />
               </section>
-
-              <section className="max-w-[500px]">
-                <h1 className="text-2xl font-semibold mb-6 mt-5">
-                  {item.itemName}
-                </h1>
-                <p className="mb-5">{item.itemDesc}</p>
-                <section className="flex gap-20 font-semibold">
+              <section className="itemDetails">
+                <h1 className="itemTitle">{item.itemName}</h1>
+                <p className="itemDesc">{item.itemDesc}</p>
+                <section className="itemInfo">
                   <section>
                     <p>Status : {item.itemStatus}</p>
                     <p>Category : {item.itemCategory}</p>
@@ -134,18 +135,14 @@ export default function Found() {
                     <p>Date Lost : {item.itemDate}</p>
                   </section>
                 </section>
-                <section className="my-4 w-96 ">
-                  <div className="h-[1px] w-full bg-slate-800"></div>
-                  <div className="flex justify-between items-end ">
-                    <section>
-                      <p>Claimed By : ABC</p>
-                      <p>Email ID : ABC@ncuindia.edu</p>
-                      <p>Phone NO : 67867886767</p>
-                    </section>
-                    <button className="bg-primary text-white text-xl rounded-xl px-5 py-1">
-                      Claim
-                    </button>
-                  </div>
+                <section className="dividerSmall"></section>
+                <section className="claimInfo">
+                  <section>
+                    <p>Claimed By : ABC</p>
+                    <p>Email ID : ABC@ncuindia.edu</p>
+                    <p>Phone NO : 67867886767</p>
+                  </section>
+                  <button className="claimButton">Claim</button>
                 </section>
               </section>
             </div>

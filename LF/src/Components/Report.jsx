@@ -63,7 +63,7 @@ export default function ReportForm() {
         <div className="form-wrapper">
           <h1 className="form-title">REPORT AN ITEM</h1>
           <form onSubmit={handleReport} className="form">
-            <div className="checkbox">
+            <div className="check-box">
               <label>
                 <input
                   type="radio"
@@ -71,7 +71,7 @@ export default function ReportForm() {
                   checked={reportType === "lost"}
                   onChange={() => setReportType("lost")}
                 />
-                Lost
+                Lostfd
               </label>
               <label>
                 <input

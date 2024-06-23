@@ -6,20 +6,24 @@
   text-align: center;
 }
 
-.checkbox {
+.check-box {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 20px;
+  font-size: 20px;
 }
 
-.checkbox label {
+
+.check-box label {
   margin-left: 10px;
   font-size: 1rem;
 }
 
-.checkbox input[type="radio"] {
+.check-box input[type="radio"] {
   margin-right: 5px;
+  height: 30px;
+  width: 30px;
 }
 
 .form-wrapper {
