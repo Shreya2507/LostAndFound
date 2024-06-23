@@ -8,7 +8,7 @@ function Footer() {
     <div>
        <footer className="new_footer_area bg_color">
       <div className="new_footer_top">
-        <div className="container">
+        <div className="container247">
           <div className="row">
             <div className="col-lg-3 col-md-6">
               <div className="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s">
