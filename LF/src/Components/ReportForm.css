@@ -144,15 +144,15 @@ input[type="radio"] {
 .ballz1 {
   top: 600px;
   left: -200px;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   background: linear-gradient(90deg,#0084ff,#0ff);
 }
 
 .ballz2 {
   bottom: -400px;
-  left: -200px;
-  width: 80px;
-  height: 80px;
+  left: -700px;
+  width: 175px;
+  height: 175px;
   background: linear-gradient(90deg,#00ffd9,#00ff84);
 }

@@ -1,130 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 
 .Homepagetry {
-    position: relative;
-    display: block;
-    height: 100vh; /* Adjusted to cover the full viewport height */
-    width: 100%;
-    overflow: hidden; /* Ensures the background animation does not cause scroll bars */
-  }
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  height: 100vh; /* Adjusted to cover the full viewport height */
+  width: 100%;
+  overflow: hidden; /* Ensures the background animation does not cause scroll bars */
+}
 
 h1.title {
-    font-family: "Fredericka the Great", serif;
-    font-size: 100px;
-    text-align: center;
-    z-index: 1000;
-    margin-top: 200px;
+  font-family: "Fredericka the Great", serif;
+  font-size: 100px;
+  text-align: center;
+  z-index: 1000;
+  margin-top: -20px;
 }
 
-.laptop, .keys, .Wallet, .Wallet1, .bottle, .mobile, .mobile1, .headphone, .watch, .Bag, .pen, .pen1, .pen2, .pendrive , .cloth, .headphone1, .pendrive1, .bottle1 ,.scale {
-    width: 300px;
-    display: flex;
-    position: absolute;
+.animation1,
+.animation2,
+.animation3,
+.animation4 {
+  position: absolute; /* Ensures animations are positioned relative to the parent */
+  transform: translate(-50%, -50%); /* Centers animations precisely */
+  z-index: 10;
 }
 
-.laptop {
-    margin-left: -120px;
-    margin-top: 90px;
-    width: 500px;
+.animation1 {
+  top: 50%; /* Positioning from the top */
+  left: 25%; /* Positioning from the left */
+  width: 400px; /* Adjust width as needed */
 }
 
-.keys {
-    left: 430px;
-    top: -150px;
+.animation2 {
+  top: 25%; /* Positioning from the top */
+  right: 25%; /* Positioning from the right */
+  width: 300px; /* Adjust width as needed */
 }
 
-.Wallet {
-    left: 830px;
-    top: 90px;
+.animation3 {
+  bottom: 25%; /* Positioning from the bottom */
+  right: 25%; /* Positioning from the right */
+  width: 300px; /* Adjust width as needed */
 }
 
-.Wallet1 {
-    left: 80px;
-    top: -210px;
-}
-
-.Bag {
-    left: 130px;
-    top: 70px;
-}
-
-.mobile {
-    margin-left: -60px;
-    margin-top: -170px;
-}
-
-.mobile1 {
-    margin-left: 900px;
-    margin-top: 150px;
-    rotate: 250deg;
-    width: 200px;
-}
-
-.headphone {
-    margin-left: 420px;
-    margin-top: 80px;
-}
-
-.headphone1 {
-    margin-left: 20px;
-    margin-top: 50px;
-    width: 800px;
-}
-
-.watch {
-    left: 930px;
-    top: -150px;
-}
-
-.pen {
-    margin-left: -20px;
-    margin-top: -320px;
-    rotate: 50deg;
-    width: 200px;
-}
-
-.pen1 {
-    margin-left: -10px;
-    margin-top: -50px;
-}
-
-.pen2 {
-    margin-left: 1200px;
-    margin-top: -200px;
-    rotate: 1750deg;
-}
-
-.bottle {
-    margin-left: 1200px;
-    margin-top: 100px;
-    rotate: 1750deg;
-}
-
-.bottle1 {
-    margin-left: 1100px;
-    margin-top: -500px;
-    width: 400px;
-    rotate: 30deg;
-}
-
-.pendrive {
-    margin-left: 600px;
-    margin-top: 100px;
-}
-
-.pendrive1 {
-    margin-left: 1150px;
-    margin-top: -90px;
-    rotate: 1750deg;
-    width: 175px;
-}
-
-.cloth {
-    margin-left: 700px;
-    margin-top: -300px;
-}
-
-.scale{
-    margin-left: 1300px;
-    margin-top: 40px;
+.animation4 {
+  top: 75%; /* Positioning from the top */
+  left: 50%; /* Positioning from the left */
+  width: 300px; /* Adjust width as needed */
 }
