@@ -1,20 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import ncu from '../Assets/ncu.png';
-import ncuDark from '../Assets/ncuDark.png'; // Import the dark mode logo
-import '../App.css';
-import './header.css';
-import ToggleSwitch from './ToggleSwitch';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import ncu from "../Assets/ncu.png";
+import ncuDark from "../Assets/ncuDark.png"; // Import the dark mode logo
+import "../App.css";
+import "./header.css";
+import ToggleSwitch from "./ToggleSwitch";
 
 function Header() {
+  const [isChecked, setIsChecked] = useState(true);
+  const [imgUrl, setImgUrl] = useState(ncuDark);
+
+  useEffect(() => {
+    if (isChecked) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [isChecked]);
+
+  const handleChange = () => {
+    isChecked ? setImgUrl(ncu) : setImgUrl(ncuDark);
+    setIsChecked(!isChecked);
+  };
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const bodyClass = document.body.classList;
     if (isDarkMode) {
-      bodyClass.add('dark');
+      bodyClass.add("dark");
     } else {
-      bodyClass.remove('dark');
+      bodyClass.remove("dark");
     }
   }, [isDarkMode]);
 
@@ -27,7 +42,7 @@ function Header() {
       <header className="page-header">
         <div className="logo">
           <Link to="/Home">
-            <img alt="logo" src={isDarkMode ? ncuDark : ncu} className="logo-img" />
+            <img alt="logo" src={imgUrl} className="logo-img" />
           </Link>
         </div>
         <div className="head">
@@ -38,10 +53,29 @@ function Header() {
             <Link to="/Report">REPORT</Link>
           </nav>
         </div>
-        <ToggleSwitch onToggle={handleToggle} />
+        {/* <ToggleSwitch onToggle={handleToggle} /> */}
+        <div className="Switch">
+          <input
+            type="checkbox"
+            className="checkbox"
+            id="checkbox"
+            checked={isChecked}
+            onChange={handleChange}
+          />
+          <label htmlFor="checkbox" className="checkbox-label">
+            <i className="fas fa-moon"></i>
+            <i className="fas fa-sun"></i>
+            <span className="balldark"></span>
+          </label>
+        </div>
         <div className="btns">
           <Link className="blue-btn" to="/Profile">
-            <img width="35" height="35" src="https://img.icons8.com/ios-filled/50/gender-neutral-user.png" alt="Profile" />
+            <img
+              width="35"
+              height="35"
+              src="https://img.icons8.com/ios-filled/50/gender-neutral-user.png"
+              alt="Profile"
+            />
             Profile
           </Link>
         </div>
