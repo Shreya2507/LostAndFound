@@ -13,15 +13,15 @@ import Profile from './Pages/Profile';
 import Footer from './Components/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useEffect } from "react";
 function App() {
 
-  // useEffect(() => {
-  //   document.body.classList.add("dark");
-  //   return () => {
-  //     document.body.classList.remove("dark");
-  //   };
-  // }, []);
+  useEffect(() => {
+    document.body.classList.add("dark");
+    return () => {
+      document.body.classList.remove("dark");
+    };
+  }, []);
   return (
     <div>
       <ToastContainer />
