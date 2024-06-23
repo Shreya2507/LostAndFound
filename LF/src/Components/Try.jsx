@@ -10,6 +10,9 @@ import animation6 from '../Assets/6.gif';
 import animation7 from '../Assets/7.gif';
 import animation8 from '../Assets/8.gif';
 import animation9 from '../Assets/9.gif';
+import animation10 from '../Assets/10.gif';
+import animation11 from '../Assets/11.gif';
+import animation12 from '../Assets/12.gif';
 
 const GifComponent = ({ className, animationData, index, elementsRef }) => {
   const handleMouseMove = useCallback((e) => {
@@ -49,6 +52,9 @@ const Try = () => {
     { className: 'animation7', animationData: animation7 },
     { className: 'animation8', animationData: animation8 },
     { className: 'animation9', animationData: animation9 },
+    { className: 'animation10', animationData: animation10 },
+    { className: 'animation11', animationData: animation11 },
+    { className: 'animation12', animationData: animation12 },
   ];
 
   return (
