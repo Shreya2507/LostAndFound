@@ -1,8 +1,9 @@
-import  { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import './ReportForm.css';
+import Modal from './Modal'; // Import the Modal component
 
 export default function ReportForm() {
   const [reportType, setReportType] = useState("lost");
@@ -10,8 +11,10 @@ export default function ReportForm() {
   const [itemName, setItemName] = useState("");
   const [category, setCategory] = useState("Category");
   const [date, setDate] = useState("");
-  const [desc, setDesc] = useState("Add description..");
+  const [desc, setDesc] = useState("");
   const [images, setImages] = useState([]);
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [modalMessage, setModalMessage] = useState(""); // State to store modal message
 
   function clearForm() {
     setReportType("lost");
@@ -19,7 +22,7 @@ export default function ReportForm() {
     setCategory("Category");
     setItemName("");
     setDate("");
-    setDesc("Add description..");
+    setDesc("");
     setImages([]);
   }
 
@@ -44,14 +47,12 @@ export default function ReportForm() {
 
     try {
       await axios.post(endpoint, report);
-      toast.success("Item reported successfully!", {
-        position: toast.POSITION.TOP_CENTER
-      });
+      setModalMessage("Item reported successfully!");
+      setShowModal(true);
       clearForm();
     } catch (error) {
-      toast.error("There was an error submitting the report!", {
-        position: toast.POSITION.TOP_CENTER
-      });
+      setModalMessage("There was an error submitting the report!");
+      setShowModal(true);
     }
   }
 
@@ -135,12 +136,20 @@ export default function ReportForm() {
               className="input"
             />
             <textarea
-              placeholder={desc}
+              value={desc}
               onChange={(e) => setDesc(e.target.value)}
               id="description"
               rows="5"
               className="textarea"
+              placeholder="Add description..."
             ></textarea>
+            {images.length > 0 && (
+              <div className="image-preview">
+                {images.map((image, index) => (
+                  <img key={index} src={image} alt={`preview ${index}`} />
+                ))}
+              </div>
+            )}
             <div className="button-group">
               <input
                 type="submit"
@@ -150,7 +159,7 @@ export default function ReportForm() {
               <input
                 type="button"
                 value="Cancel"
-                onClick={clearForm}
+                onClick={(e) => { e.preventDefault(); clearForm(); }}
                 className="button21 cancel-button"
               />
             </div>
@@ -161,6 +170,7 @@ export default function ReportForm() {
           <div className="ball21 ballz2"></div>
         </div>
       </div>
+      <Modal show={showModal} handleClose={() => setShowModal(false)} message={modalMessage} />
     </div>
   );
 }
