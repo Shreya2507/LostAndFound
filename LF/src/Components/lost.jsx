@@ -28,8 +28,8 @@ export default function Found() {
     <>
       <div className="container">
         <div className="header">
-          <h1 className="found-title">Found Inventory</h1>
-          <h6 className="subtitle">List of items that are found</h6>
+          <h1 className="found-title">Lost Inventory</h1>
+          <h6 className="subtitle">List of items that are lost</h6>
           <form
             onSubmit={(e) => {
               e.preventDefault();
