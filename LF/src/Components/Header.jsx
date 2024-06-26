@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { GoogleLogin } from '@react-oauth/google';
 import { Link } from "react-router-dom";
 import ncu from "../Assets/ncu.png";
 import ncuDark from "../Assets/ncuDark.png"; // Import the dark mode logo
@@ -7,6 +8,13 @@ import "./header.css";
 import ToggleSwitch from "./ToggleSwitch";
 
 function Header() {
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
+  };
+
   const [isChecked, setIsChecked] = useState(true);
   const [imgUrl, setImgUrl] = useState(ncuDark);
 
@@ -69,7 +77,8 @@ function Header() {
           </label>
         </div>
         <div className="btns">
-          <Link className="blue-btn" to="/Profile">
+        <GoogleLogin className="blue-btn" onSuccess={responseMessage} onError={errorMessage} />
+          {/* <Link className="blue-btn" to="/Profile">
             <img
               width="35"
               height="35"
@@ -77,7 +86,7 @@ function Header() {
               alt="Profile"
             />
             Profile
-          </Link>
+          </Link> */}
         </div>
       </header>
     </div>

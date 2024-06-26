@@ -1,5 +1,6 @@
 
 import './App.css';
+
 import Header from './Components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
@@ -15,6 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
 function App() {
+
 
   useEffect(() => {
     document.body.classList.add("dark");
