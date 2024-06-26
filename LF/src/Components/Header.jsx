@@ -6,17 +6,36 @@ import ncuDark from "../Assets/ncuDark.png"; // Import the dark mode logo
 import "../App.css";
 import "./header.css";
 import ToggleSwitch from "./ToggleSwitch";
+import { jwtDecode} from 'jwt-decode';
 
 function Header() {
-  const responseMessage = (response) => {
-    console.log(response);
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
-
+  const [user, setUser] = useState({});
   const [isChecked, setIsChecked] = useState(true);
   const [imgUrl, setImgUrl] = useState(ncuDark);
+
+  function handleCallbackResponse(response){
+    console.log("Encoded JWT ID token :" + response.credential);
+    var userObject = jwtDecode(response.credential);
+    console.log(userObject);
+    setUser(userObject);
+
+  }
+
+  useEffect(()=>{
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "77856036818-4r7itafi96napts9vna962p94paruiqn.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      {theme: "outline", size: "large"}
+    )
+
+  }, []);
+
+
 
   useEffect(() => {
     if (isChecked) {
@@ -77,8 +96,10 @@ function Header() {
           </label>
         </div>
         <div className="btns">
-        <GoogleLogin className="blue-btn" onSuccess={responseMessage} onError={errorMessage} />
-          {/* <Link className="blue-btn" to="/Profile">
+        {/* <GoogleLogin  onSuccess={responseMessage} onError={errorMessage} /> */}
+        <button id="signInDiv"></button>
+
+          {/* <Link className="blue-btn signInDiv" to="/Profile">
             <img
               width="35"
               height="35"
