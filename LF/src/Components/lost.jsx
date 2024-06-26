@@ -25,7 +25,7 @@ export default function Found() {
   }
 
   return (
-    <>
+  
       <div className="container">
         <div className="header">
           <h1 className="found-title">Lost Inventory</h1>
@@ -50,7 +50,7 @@ export default function Found() {
           </form>
         </div>
         <div className="buttonContainer">
-          <button className="button">
+          <button className="btn">
             <img
               src="./src/Assets/image 20.png"
               alt="Specs"
@@ -58,7 +58,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Specs</h1>
           </button>
-          <button className="button">
+          <button className="btn">
             <img
               src="./src/Assets/image 21.png"
               alt="Key"
@@ -66,7 +66,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Key</h1>
           </button>
-          <button className="button">
+          <button className="btn">
             <img
               src="./src/Assets/image 29.png"
               alt="Bag"
@@ -74,7 +74,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Bag</h1>
           </button>
-          <button className="button">
+          <button className="btn">
             <img
               src="./src/Assets/image 31.png"
               alt="Mobile"
@@ -82,7 +82,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Mobile</h1>
           </button>
-          <button className="button">
+          <button className="btn">
             <img
               src="./src/Assets/image 37.png"
               alt="Purse"
@@ -115,7 +115,7 @@ export default function Found() {
               key={item.id}
               className={`itemCard ${item.dark ? "dark" : ""}`}
             >
-              <section>
+              <section className="img-section">
                 <img
                   src="./src/Assets/Rectangle 14.png"
                   className="itemImage"
@@ -149,6 +149,5 @@ export default function Found() {
           ))}
         </div>
       </div>
-    </>
   );
 }

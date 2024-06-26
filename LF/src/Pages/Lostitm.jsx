@@ -1,10 +1,10 @@
 
-import "../App.css";
+import "../Pages/Lostitm.css";
 import Lost from "../Components/lost";
 
 function Founditm() {
   return (
-    <div>
+    <div className="main-container">
       <Lost />
     </div>
   );

@@ -32,7 +32,7 @@
   font-weight: 500;
   transition: 0.2s;
   cursor: pointer;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   justify-content: center;
 }
 
@@ -63,7 +63,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: 0.3s;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   border-radius: 20px;
   align-items: center;
@@ -103,4 +103,42 @@ body.dark .blue-btn {
 body.dark .blue-btn:hover {
   background-color: #6874ffd4;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .head{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+  .logo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .navbar a{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: start;
+    margin-bottom: 10px;
+  }
+  .btns{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+ .home{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 200px;
+ }
 }
