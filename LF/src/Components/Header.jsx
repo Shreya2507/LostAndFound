@@ -18,6 +18,8 @@ function Header() {
     var userObject = jwtDecode(response.credential);
     console.log(userObject);
     setUser(userObject);
+    document.getElementById("profileBtn").hidden = false;
+    document.getElementById("signInDiv").hidden = true;
 
   }
 
@@ -99,15 +101,15 @@ function Header() {
         {/* <GoogleLogin  onSuccess={responseMessage} onError={errorMessage} /> */}
         <button id="signInDiv"></button>
 
-          {/* <Link className="blue-btn signInDiv" to="/Profile">
+          <Link className="blue-btn" id="profileBtn" hidden="true" to="/Profile">
             <img
               width="35"
               height="35"
               src="https://img.icons8.com/ios-filled/50/gender-neutral-user.png"
               alt="Profile"
             />
-            Profile
-          </Link> */}
+            {user.name}
+          </Link>
         </div>
       </header>
     </div>
