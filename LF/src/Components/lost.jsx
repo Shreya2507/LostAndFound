@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import data from "../dummyData/foundDummyData";
-import "./Found.css";
+import "./Lost.css";
 
 export default function Found() {
   const [search, setSearch] = useState("Search Item");
