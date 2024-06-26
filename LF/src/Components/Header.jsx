@@ -1,14 +1,43 @@
 import React, { useState, useEffect } from "react";
+import { GoogleLogin } from '@react-oauth/google';
 import { Link } from "react-router-dom";
 import ncu from "../Assets/ncu.png";
 import ncuDark from "../Assets/ncuDark.png"; // Import the dark mode logo
 import "../App.css";
 import "./header.css";
 import ToggleSwitch from "./ToggleSwitch";
+import { jwtDecode} from 'jwt-decode';
 
 function Header() {
+  const [user, setUser] = useState({});
   const [isChecked, setIsChecked] = useState(true);
   const [imgUrl, setImgUrl] = useState(ncuDark);
+
+  function handleCallbackResponse(response){
+    console.log("Encoded JWT ID token :" + response.credential);
+    var userObject = jwtDecode(response.credential);
+    console.log(userObject);
+    setUser(userObject);
+    document.getElementById("profileBtn").hidden = false;
+    document.getElementById("signInDiv").hidden = true;
+
+  }
+
+  useEffect(()=>{
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "77856036818-4r7itafi96napts9vna962p94paruiqn.apps.googleusercontent.com",
+      callback: handleCallbackResponse
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("signInDiv"),
+      {theme: "outline", size: "large"}
+    )
+
+  }, []);
+
+
 
   useEffect(() => {
     if (isChecked) {
@@ -69,14 +98,17 @@ function Header() {
           </label>
         </div>
         <div className="btns">
-          <Link className="blue-btn" to="/Profile">
+        {/* <GoogleLogin  onSuccess={responseMessage} onError={errorMessage} /> */}
+        <button id="signInDiv"></button>
+
+          <Link className="blue-btn" id="profileBtn" hidden="true" to="/Profile">
             <img
               width="35"
               height="35"
               src="https://img.icons8.com/ios-filled/50/gender-neutral-user.png"
               alt="Profile"
             />
-            Profile
+            {user.name}
           </Link>
         </div>
       </header>
