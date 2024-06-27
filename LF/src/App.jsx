@@ -1,4 +1,3 @@
-
 import './App.css';
 import Header from './Components/Header';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -11,18 +10,18 @@ import Founditm from './Pages/Founditm';
 import Report from './Pages/Report';
 import Profile from './Pages/Profile';
 import Footer from './Components/Footer';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from "react";
+
 function App() {
-
-
   useEffect(() => {
     document.body.classList.add("dark");
     return () => {
       document.body.classList.remove("dark");
     };
   }, []);
+
   return (
     <div>
       <ToastContainer />
@@ -39,7 +38,6 @@ function App() {
           </Routes>
         </div>
       </Router>
-
       <Footer />
     </div>
   );
