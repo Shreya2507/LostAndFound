@@ -98,7 +98,7 @@ function Header() {
           </label>
         </div>
         <div className="btns">
-        {/* <GoogleLogin  onSuccess={responseMessage} onError={errorMessage} /> */}
+        <GoogleLogin  onSuccess={responseMessage} onError={errorMessage} />
         <button id="signInDiv"></button>
 
           <Link className="blue-btn" id="profileBtn" hidden="true" to="/Profile">
