@@ -4,7 +4,7 @@
   --gradientcolor: linear-gradient(to right top, #f3e8ff, #ffe9f6, #ffecee, #fff1eb, #fff7ed);
 }
 
-.container {
+.container-lost {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
   width: 100vw;
 }
 
-.header {
+.header-lost {
   margin-bottom: 2.5rem;
 }
 
@@ -58,7 +58,7 @@
   gap: 1.5rem;
 }
 
-.btn {
+.btn-lost {
   display: flex;
   flex-direction: column;
   align-items: center;

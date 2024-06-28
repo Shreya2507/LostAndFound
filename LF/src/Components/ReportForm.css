@@ -14,7 +14,6 @@
   font-size: 20px;
 }
 
-
 .check-box label {
   margin-left: 10px;
   font-size: 1.5rem;
@@ -22,7 +21,6 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-
 }
 
 .check-box input[type="radio"] {
@@ -47,6 +45,7 @@
   background: linear-gradient(132deg, rgba(255, 255, 255, 0.20) 18.17%, rgba(255, 255, 255, 0.06) 52.35%, rgba(176, 176, 176, 0.04) 93.52%);
   box-shadow: 2px 4px 16.1px 6px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(12.5px);
+  z-index: 1; /* Add a higher z-index for the form wrapper */
 }
 
 .form-title {
@@ -130,11 +129,11 @@
 }
 
 .balls21 {
-  position: relative;
+  position: absolute; /* Change to absolute for the balls container */
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
-  z-index: -1;
+  z-index: 0; /* Ensure the balls are above the form */
 }
 
 .ball21 {
@@ -142,7 +141,7 @@
   position: absolute;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: 0; /* Ensure the balls are above the form */
   animation: floatAnimation 2s ease-in-out infinite alternate;
 }
 

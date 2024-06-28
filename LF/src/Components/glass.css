@@ -4,9 +4,9 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  }
-  
-  .card {
+}
+
+.card-glass {
   position: relative;
   height: 250px;
   width: 400px;
@@ -15,9 +15,10 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 25px;
-  }
-  
-  .content {
+  z-index: 1; /* Set a higher z-index for the card */
+}
+
+.content-glass {
   display: flex;
   justify-content: unset;
   font-family: arial;
@@ -27,78 +28,77 @@
   flex-direction: row;
   align-content: center;
   align-items: center;
-  }
-  
-  .cardLink {
+}
+
+.cardLink {
   text-decoration: none;
-  }
-  
-  .card img {
+}
+
+.card img {
   display: block;
   margin: 0 auto;
-  }
-  
-  .text-card {
+}
+
+.text-card {
   display: flex;
   padding: 20px;
   flex-direction: column;
-  }
-  
-  /* Balls */
-  .glass-container {
-    position: relative;
-  }
-  
-  .balls {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
-    z-index: -1;
-  }
-  
-  .ball {
-    margin-left: -300px;
-    position: absolute;
-    border-radius: 50%;
+}
+
+/* Balls */
+.glass-container {
+  position: relative;
+}
+
+.balls {
+  position: relative;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 0; /* Ensure the balls are above the card */
+}
+
+.ball {
+  margin-left: -300px;
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Ensure the balls are above the card */
+  animation: floatAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnimation {
+  0% {
     transform: translate(-50%, -50%);
-    z-index: -1;
-    animation: floatAnimation 2s ease-in-out infinite alternate;
   }
-  
-  @keyframes floatAnimation {
-    0% {
-      transform: translate(-50%, -50%);
-    }
-    100% {
-      transform: translate(-50%, -50%) translateY(-20px);
-    }
+  100% {
+    transform: translate(-50%, -50%) translateY(-20px);
   }
-  
-  .ball1 {
-    top: -180px;
-    left: 130px;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(90deg, #0084ff, #0ff);
-  }
-  
-  .ball2 {
-    bottom: 50px;
-    left: 400px;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(90deg, #00ffd9, #00ff84);
-  }
-  
-  .ball3 {
-    bottom: -120px;
-    right: 120px;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(90deg, #a200ff, #000dff);
-  }
-  
+}
+
+.ball1 {
+  top: -190px;
+  left: 130px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(90deg, #0084ff, #0ff);
+}
+
+.ball2 {
+  bottom: 50px;
+  left: 400px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(90deg, #00ffd9, #00ff84);
+}
+
+.ball3 {
+  bottom: -115px;
+  right: 120px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(90deg, #a200ff, #000dff);
+}  
   
   .card::after {
     content: "";

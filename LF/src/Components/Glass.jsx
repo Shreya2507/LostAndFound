@@ -40,10 +40,10 @@ function Glass({ title, subtitle, imageSrc, to }) {
       <div className="glass-container">
         <div className="cardContainer">
           <Link to={to} className="cardLink">
-            <div ref={cardRef} className="card">
+            <div ref={cardRef} className="card-glass">
               <div className="text-card">
-                <h1 className="content">{title}</h1>
-                <h3 className="content">{subtitle}</h3>
+                <h1 className="content-glass">{title}</h1>
+                <h3 className="content-glass">{subtitle}</h3>
               </div>
               <img width="100" height="100" src={imageSrc} alt={title} />
             </div>

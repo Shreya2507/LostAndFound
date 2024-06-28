@@ -26,8 +26,8 @@ export default function Found() {
 
   return (
   
-      <div className="container">
-        <div className="header">
+      <div className="container-lost">
+        <div className="header-lost">
           <h1 className="found-title">Lost Inventory</h1>
           <h6 className="subtitle">List of items that are lost</h6>
           <form
@@ -50,7 +50,7 @@ export default function Found() {
           </form>
         </div>
         <div className="buttonContainer">
-          <button className="btn">
+          <button className="btn-lost">
             <img
               src="./src/Assets/image 20.png"
               alt="Specs"
@@ -58,7 +58,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Specs</h1>
           </button>
-          <button className="btn">
+          <button className="btn-lost">
             <img
               src="./src/Assets/image 21.png"
               alt="Key"
@@ -66,7 +66,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Key</h1>
           </button>
-          <button className="btn">
+          <button className="btn-lost">
             <img
               src="./src/Assets/image 29.png"
               alt="Bag"
@@ -74,7 +74,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Bag</h1>
           </button>
-          <button className="btn">
+          <button className="btn-lost">
             <img
               src="./src/Assets/image 31.png"
               alt="Mobile"
@@ -82,7 +82,7 @@ export default function Found() {
             />
             <h1 className="search-btn">Mobile</h1>
           </button>
-          <button className="btn">
+          <button className="btn-lost">
             <img
               src="./src/Assets/image 37.png"
               alt="Purse"
