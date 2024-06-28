@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+img.glass-photo{
+  margin: auto;
+}
+
 .card-glass {
   position: relative;
   height: 250px;
@@ -28,6 +32,7 @@
   flex-direction: row;
   align-content: center;
   align-items: center;
+  text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .cardLink {

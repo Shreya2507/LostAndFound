@@ -45,7 +45,7 @@ function Glass({ title, subtitle, imageSrc, to }) {
                 <h1 className="content-glass">{title}</h1>
                 <h3 className="content-glass">{subtitle}</h3>
               </div>
-              <img width="100" height="100" src={imageSrc} alt={title} />
+              <img className='glass-photo' width="100" height="100" src={imageSrc} alt={title} />
             </div>
           </Link>
         </div>
