@@ -43,7 +43,7 @@ export default function ReportForm() {
       images
     };
 
-    const endpoint = reportType === "lost" ? 'http://localhost:5000/api/reports/lost' : 'http://localhost:5000/api/reports/found';
+    const endpoint = reportType === "lost" ? 'lost-backend-ten.vercel.app/api/reports/lost' : 'lost-backend-ten.vercel.app/api/reports/found';
 
     try {
       await axios.post(endpoint, report);
