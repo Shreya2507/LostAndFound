@@ -43,7 +43,7 @@ export default function ReportForm() {
       images
     };
 
-    const endpoint = reportType === "lost" ? 'https://lostbackend-2.onrender.com/api/reports/lost' : 'https://lostbackend-2.onrender.com/api/reports/found';
+    const endpoint = reportType === "lost" ? 'https://lf-backend-wx64.onrender.com/api/reports/lost' : 'https://lf-backend-wx64.onrender.com/api/reports/found';
 
     try {
       await axios.post(endpoint, report);
