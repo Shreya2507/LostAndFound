@@ -52,7 +52,7 @@ export default function Found() {
         <div className="buttonContainer">
           <button className="button">
             <img
-              src="./src/Assets/image 20.png"
+              src="../Assets/image 20.png"
               alt="Specs"
               className="img-btn"
             />
@@ -60,7 +60,7 @@ export default function Found() {
           </button>
           <button className="button">
             <img
-              src="./src/Assets/image 21.png"
+              src="../Assets/image 21.png"
               alt="Key"
               className="img-btn"
             />
@@ -68,7 +68,7 @@ export default function Found() {
           </button>
           <button className="button">
             <img
-              src="./src/Assets/image 29.png"
+              src="../Assets/image 29.png"
               alt="Bag"
               className="img-btn"
             />
@@ -76,7 +76,7 @@ export default function Found() {
           </button>
           <button className="button">
             <img
-              src="./src/Assets/image 31.png"
+              src="../Assets/image 31.png"
               alt="Mobile"
               className="img-btn"
             />
@@ -84,7 +84,7 @@ export default function Found() {
           </button>
           <button className="button">
             <img
-              src="./src/Assets/image 37.png"
+              src="../Assets/image 37.png"
               alt="Purse"
               className="img-btn"
             />
@@ -117,7 +117,7 @@ export default function Found() {
             >
               <section>
                 <img
-                  src="./src/Assets/Rectangle 14.png"
+                  src="../Assets/Rectangle 14.png"
                   className="itemImage"
                   alt="error"
                 />
