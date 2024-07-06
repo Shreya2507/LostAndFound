@@ -1,6 +1,8 @@
 const { Lost, Found } = require('./models/Report');
+const express = require('express');
+const router = express.Router();
 
-app.post('/api/reports/lost', async (req, res) => {
+router.post('/reports/lost', async (req, res) => {
     try {
         const lostReport = new Lost(req.body);
         await lostReport.save();
@@ -11,7 +13,7 @@ app.post('/api/reports/lost', async (req, res) => {
 });
 
 
-app.post('/api/reports/found', async (req, res) => {
+router.post('/reports/found', async (req, res) => {
     try {
         const foundReport = new Found(req.body);
         await foundReport.save();
@@ -20,3 +22,5 @@ app.post('/api/reports/found', async (req, res) => {
         res.status(400).send(error);
     }
 });
+
+module.exports = reportRoute;

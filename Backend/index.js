@@ -2,17 +2,19 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./connection');
 require('dotenv').config();
+const bodyParser = require('body-parser');
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 connectDB();
-
+app.use(bodyParser.json());
 
 //Set up routes
-const reportRouter = require('./routes/reportRouter')
-app.use('/api', reportRouter)
+const reportRoute = require('./routes/reportRoute')
+app.use('/api', reportRoute)
 
 
 const PORT = process.env.PORT || 5000;
