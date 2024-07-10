@@ -1,4 +1,4 @@
-const { Lost, Found } = require('./models/Report');
+const { Lost, Found } = require('../models/Report');
 const express = require('express');
 const router = express.Router();
 

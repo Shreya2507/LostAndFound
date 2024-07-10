@@ -13,7 +13,7 @@ connectDB();
 app.use(bodyParser.json());
 
 //Set up routes
-const reportRoute = require('./routes/reportRoute')
+const reportRoute = require('./routes/reportRoute');
 app.use('/api', reportRoute)
 
 

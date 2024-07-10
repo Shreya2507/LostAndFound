@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const reportSchema = new mongoose.Schema({
-  email: String,
-  location: String,
+  id: String,
   itemName: String,
-  category: String,
-  date: Date,
-  description: String,
-  images: [String],
-  status: Boolean
+  itemImg: String,
+  itemDesc: String,
+  itemDate: Date,
+  itemCategory: String,
+  itemStatus: String,
+  itemLocation: String
 });
 
 const Lost = mongoose.model('Lost', reportSchema);
