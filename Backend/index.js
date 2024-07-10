@@ -12,9 +12,9 @@ app.use(express.json());
 connectDB();
 app.use(bodyParser.json());
 
-//Set up routes
-const reportRoute = require('./routes/reportRoute');
-app.use('/api', reportRoute)
+// //Set up routes
+// const reportRoute = require('./routes/reportRoute');
+// app.use('/api', reportRoute)
 
 
 const PORT = process.env.PORT || 5000;
