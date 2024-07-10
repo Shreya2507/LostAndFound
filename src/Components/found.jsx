@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import data from "../dummyData/foundDummyData";
-import "./Found.css";
+import "./Lost.css";
 
 export default function Found() {
   const [search, setSearch] = useState("Search Item");
@@ -25,11 +25,11 @@ export default function Found() {
   }
 
   return (
-    <>
-      <div className="container">
-        <div className="header">
+  
+      <div className="container-lost">
+        <div className="header-lost">
           <h1 className="found-title">Found Inventory</h1>
-          <h6 className="subtitle">List of items that are found</h6>
+          <h6 className="subtitle">List of items that are Found</h6>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -50,41 +50,41 @@ export default function Found() {
           </form>
         </div>
         <div className="buttonContainer">
-          <button className="button">
+          <button className="btn-lost">
             <img
-              src="../Assets/image 20.png"
+              src="./src/Assets/image 20.png"
               alt="Specs"
               className="img-btn"
             />
             <h1 className="search-btn">Specs</h1>
           </button>
-          <button className="button">
+          <button className="btn-lost">
             <img
-              src="../Assets/image 21.png"
+              src="./src/Assets/image 21.png"
               alt="Key"
               className="img-btn"
             />
             <h1 className="search-btn">Key</h1>
           </button>
-          <button className="button">
+          <button className="btn-lost">
             <img
-              src="../Assets/image 29.png"
+              src="./src/Assets/image 29.png"
               alt="Bag"
               className="img-btn"
             />
             <h1 className="search-btn">Bag</h1>
           </button>
-          <button className="button">
+          <button className="btn-lost">
             <img
-              src="../Assets/image 31.png"
+              src="./src/Assets/image 31.png"
               alt="Mobile"
               className="img-btn"
             />
             <h1 className="search-btn">Mobile</h1>
           </button>
-          <button className="button">
+          <button className="btn-lost">
             <img
-              src="../Assets/image 37.png"
+              src="./src/Assets/image 37.png"
               alt="Purse"
               className="img-btn"
             />
@@ -115,9 +115,9 @@ export default function Found() {
               key={item.id}
               className={`itemCard ${item.dark ? "dark" : ""}`}
             >
-              <section>
+              <section className="img-section">
                 <img
-                  src="../Assets/Rectangle 14.png"
+                  src="./src/Assets/Rectangle 14.png"
                   className="itemImage"
                   alt="error"
                 />
@@ -149,6 +149,5 @@ export default function Found() {
           ))}
         </div>
       </div>
-    </>
   );
 }
