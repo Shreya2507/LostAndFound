@@ -69,6 +69,9 @@ const Try = () => {
           elementsRef={elementsRef}
         />
       ))}
+      <div className="grid-background-container">
+        <div className="grid-background-overlay"></div>
+      </div>
     </div>
   );
 };
