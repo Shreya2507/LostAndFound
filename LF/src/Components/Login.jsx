@@ -48,12 +48,12 @@ const Login = () => {
       <div className="overlay-container-log">
         <div className="overlay-log">
           <div className="overlay-panel-log overlay-left-log">
-            <h1 className='head1'>Welcome Back!</h1>
+            <h1 className='headnew'>Welcome Back!</h1>
             <p className='login'>To keep connected with us please login with your personal info</p>
             <button className="ghost-log" id="signIn" onClick={handleSignInClick}>Sign In</button>
           </div>
           <div className="overlay-panel-log overlay-right-log">
-            <h1 className='head1'>Hello, Friend!</h1>
+            <h1 className='headnew'>Hello, Friend!</h1>
             <p className='login'>Enter your personal details and start journey with us</p>
             <button className="ghost-log" id="signUp" onClick={handleSignUpClick}>Sign Up</button>
           </div>

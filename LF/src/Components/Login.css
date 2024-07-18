@@ -18,6 +18,13 @@ h1.head1 {
   font-size: 36px;
 }
 
+h1.headnew{
+  color: white;
+  margin: 0;
+  font-weight: bold;
+  font-size: 34px;
+}
+
 h2.head2 {
   text-align: center;
 }
@@ -221,4 +228,8 @@ input.loginput {
   margin: 0 5px;
   height: 40px;
   width: 40px;
+}
+
+.social-container-log a:hover{
+background-color: #ff9011;
 }
