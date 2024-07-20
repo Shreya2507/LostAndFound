@@ -1,64 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { GoogleLogin } from '@react-oauth/google';
 import { Link } from "react-router-dom";
 import ncu from "../Assets/ncu.png";
 import ncuDark from "../Assets/ncuDark.png"; // Import the dark mode logo
 import "../App.css";
 import "./header.css";
 import ToggleSwitch from "./ToggleSwitch";
-import { jwtDecode} from 'jwt-decode';
 
 function Header() {
   const [user, setUser] = useState({});
-  const [isChecked, setIsChecked] = useState(true);
-  const [imgUrl, setImgUrl] = useState(ncuDark);
-
-  function handleCallbackResponse(response){
-    console.log("Encoded JWT ID token :" + response.credential);
-    var userObject = jwtDecode(response.credential);
-    console.log(userObject);
-    setUser(userObject);
-    document.getElementById("profileBtn").hidden = false;
-    document.getElementById("signInDiv").hidden = true;
-
-  }
-
-  useEffect(()=>{
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: "957033742281-1rd2kunk0u0dmj4h822l7mf17bdc9go1.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
-
-    google.accounts.id.renderButton(
-      document.getElementById("signInDiv"),
-      {theme: "outline", size: "large"}
-    )
-
-  }, []);
-
-
-
-  useEffect(() => {
-    if (isChecked) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [isChecked]);
-
-  const handleChange = () => {
-    isChecked ? setImgUrl(ncu) : setImgUrl(ncuDark);
-    setIsChecked(!isChecked);
-  };
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false); // Light mode by default
+  const [imgUrl, setImgUrl] = useState(ncu);
 
   useEffect(() => {
     const bodyClass = document.body.classList;
     if (isDarkMode) {
       bodyClass.add("dark");
+      setImgUrl(ncuDark);
     } else {
       bodyClass.remove("dark");
+      setImgUrl(ncu);
     }
   }, [isDarkMode]);
 
@@ -80,17 +40,16 @@ function Header() {
             <Link to="/Lostitm">LOST ITEMS</Link>
             <Link to="/Founditm">FOUND ITEMS</Link>
             <Link to="/Report">REPORT</Link>
-            <Link to="/LoginForm">LOGIN</Link>
+            <Link to="/Profile">PROFILE</Link>
           </nav>
         </div>
-        {/* <ToggleSwitch onToggle={handleToggle} /> */}
         <div className="Switch">
           <input
             type="checkbox"
             className="checkbox"
             id="checkbox"
-            checked={isChecked}
-            onChange={handleChange}
+            checked={isDarkMode}
+            onChange={handleToggle}
           />
           <label htmlFor="checkbox" className="checkbox-label">
             <i className="fas fa-moon"></i>
@@ -99,9 +58,7 @@ function Header() {
           </label>
         </div>
         <div className="btns">
-{/*         <GoogleLogin  onSuccess={responseMessage} onError={errorMessage} /> */}
-        <button id="signInDiv"></button>
-
+          <button id="signInDiv"></button>
           <Link className="blue-btn" id="profileBtn" hidden="true" to="/Profile">
             <img
               width="35"
@@ -111,6 +68,7 @@ function Header() {
             />
             {user.name}
           </Link>
+          <Link to="/LoginForm">LOGIN</Link>
         </div>
       </header>
     </div>
