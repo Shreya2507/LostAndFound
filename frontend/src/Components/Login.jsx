@@ -69,7 +69,7 @@ const Login = () => {
       >
         <div className="form-container-log sign-up-container-log">
           <form className="logform" onSubmit={handleSignUp}>
-            <h1 className="head1">Create Account</h1>
+            <div className="head1">Create Account</div>
             <div className="social-container-log">
               <a href="#" className="social-log links">
                 <i className="fab fa-facebook-f"></i>
@@ -111,7 +111,7 @@ const Login = () => {
         </div>
         <div className="form-container-log sign-in-container-log">
           <form className="logform" onSubmit={handleSignIn}>
-            <h1 className="head1">Sign in</h1>
+            <div className="head1">Sign in</div>
             <div className="social-container-log">
               <a href="#" className="social-log links">
                 <i className="fab fa-facebook-f"></i>
