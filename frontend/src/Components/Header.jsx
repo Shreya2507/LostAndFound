@@ -68,7 +68,7 @@ function Header() {
             />
             {user.name}
           </Link>
-          <Link to="/LoginForm">LOGIN</Link>
+          <h1><Link to="/LoginForm">LOGIN</Link></h1>
         </div>
       </header>
     </div>
