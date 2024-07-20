@@ -13,21 +13,20 @@ import Profile from './Pages/Profile';
 import Footer from './Components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect } from "react";
+import { useState } from 'react';
 
 function App() {
-  useEffect(() => {
-    document.body.classList.add("dark");
-    return () => {
-      document.body.classList.remove("dark");
-    };
-  }, []);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <div>
       <ToastContainer />
       <Router>
-        <Header />
+        <Header onToggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
         <div>
           <Routes>
             <Route path="/Home" element={<Home />} />
