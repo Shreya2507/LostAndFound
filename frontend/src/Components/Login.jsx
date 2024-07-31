@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-// import axios from "axios";
-import "./Login.css";
+import { useNavigate } from "react-router-dom";
 import axiosInstance from "./axios";
-
+import "./Login.css";
 
 const Login = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
@@ -11,6 +10,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleSignUpClick = () => {
     setIsRightPanelActive(true);
@@ -34,7 +35,7 @@ const Login = () => {
       alert(error.response?.data?.message || "Signup failed");
     }
   };
-  
+
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
@@ -43,6 +44,7 @@ const Login = () => {
         password: formData.password,
       });
       alert(response.data.message);
+      navigate("/Home"); // Redirect to the home page on successful login
     } catch (error) {
       console.error("Signin error:", error);
       alert(error.response?.data?.message || "Signin failed");
@@ -57,6 +59,7 @@ const Login = () => {
         }`}
         id="container-log"
       >
+        {/* Sign-Up Form */}
         <div className="form-container-log sign-up-container-log">
           <form className="logform" onSubmit={handleSignUp}>
             <div className="head1">Create Account</div>
@@ -99,6 +102,7 @@ const Login = () => {
             <button className="log">Sign Up</button>
           </form>
         </div>
+        {/* Sign-In Form */}
         <div className="form-container-log sign-in-container-log">
           <form className="logform" onSubmit={handleSignIn}>
             <div className="head1">Sign in</div>
@@ -136,6 +140,7 @@ const Login = () => {
             <button className="log">Sign In</button>
           </form>
         </div>
+        {/* Overlay */}
         <div className="overlay-container-log">
           <div className="overlay-log">
             <div className="overlay-panel-log overlay-left-log">
