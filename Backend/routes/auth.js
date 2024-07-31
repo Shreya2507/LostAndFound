@@ -5,7 +5,7 @@ import User from "../models/User.js";
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   try {
     const user = await User.findOne({ email });
@@ -18,6 +18,7 @@ router.post("/signup", async (req, res) => {
       name,
       email,
       password: hashedPassword,
+      role, // Save the role
     });
 
     await newUser.save();
@@ -26,6 +27,7 @@ router.post("/signup", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;

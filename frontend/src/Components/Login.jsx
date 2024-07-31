@@ -9,6 +9,7 @@ const Login = () => {
     name: "",
     email: "",
     password: "",
+    role: "user", // Default role
   });
 
   const navigate = useNavigate();
@@ -99,6 +100,28 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
             />
+            <div className="role-select">
+              <label>
+                <input
+                  type="radio"
+                  name="role"
+                  value="user"
+                  checked={formData.role === "user"}
+                  onChange={handleChange}
+                />
+                User
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  checked={formData.role === "admin"}
+                  onChange={handleChange}
+                />
+                Admin
+              </label>
+            </div>
             <button className="log">Sign Up</button>
           </form>
         </div>
