@@ -87,11 +87,6 @@ router.get('/getdata', checkAuth, (req, res) => {
     });
 });
 
-module.exports = router;
-
-
-
-
 
 
 export default router;
