@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import "./Login.css";
+import axiosInstance from "./axios";
+
 
 const Login = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
@@ -24,34 +26,22 @@ const Login = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log("Signup form submitted", formData);
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/auth/signup",
-        formData,
-        { withCredentials: true }
-      );
-      console.log("Signup response:", response);
+      const response = await axiosInstance.post("/auth/signup", formData);
       alert(response.data.message);
     } catch (error) {
       console.error("Signup error:", error);
       alert(error.response?.data?.message || "Signup failed");
     }
   };
-
+  
   const handleSignIn = async (e) => {
     e.preventDefault();
-    console.log("Signin form submitted", {
-      email: formData.email,
-      password: formData.password,
-    });
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/auth/login",
-        { email: formData.email, password: formData.password },
-        { withCredentials: true }
-      );
-      console.log("Signin response:", response);
+      const response = await axiosInstance.post("/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
       alert(response.data.message);
     } catch (error) {
       console.error("Signin error:", error);
