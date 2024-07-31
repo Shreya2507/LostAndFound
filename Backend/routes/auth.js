@@ -58,4 +58,40 @@ router.get("/logout", (req, res) => {
   });
 });
 
+
+//TO GET USER DATA
+//middleware
+const checkAuth = (req, res, next) => {
+  if (req.session && req.session.user) {
+    req.userEmail = req.session.user.email;
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};
+
+
+
+router.get('/getdata', checkAuth, (req, res) => {
+  const userEmail = req.userEmail;
+
+  User.findOne({ email: userEmail })
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      res.status(200).json({ message: "User data fetched successfully", user });
+    })
+    .catch(error => {
+      res.status(500).json({ message: "Server error", error });
+    });
+});
+
+module.exports = router;
+
+
+
+
+
+
 export default router;
