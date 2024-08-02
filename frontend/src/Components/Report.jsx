@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,6 +15,22 @@ export default function ReportForm() {
   const [images, setImages] = useState([]);
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
   const [modalMessage, setModalMessage] = useState(""); // State to store modal message
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // State to check if user is authenticated
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/api/auth/getdata");
+        if (response.status === 200) {
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   function clearForm() {
     setReportType("lost");
@@ -34,6 +50,12 @@ export default function ReportForm() {
 
   async function handleReport(e) {
     e.preventDefault();
+    if (!isAuthenticated) {
+      setModalMessage("You must be logged in to report an item.");
+      setShowModal(true);
+      return;
+    }
+
     const report = {
       location,
       itemName,
@@ -43,7 +65,7 @@ export default function ReportForm() {
       images
     };
 
-    const endpoint = reportType === "lost" ? 'https://lf-backend-wx64.onrender.com/api/reports/lost' : 'https://lf-backend-wx64.onrender.com/api/reports/found';
+    const endpoint = reportType === "lost" ? 'http://localhost:8000/api/reports/lost' : 'http://localhost:8000/api/reports/found';
 
     try {
       await axios.post(endpoint, report);

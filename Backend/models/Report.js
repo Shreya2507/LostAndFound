@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const reportSchema = new mongoose.Schema({
   location: String,
@@ -12,4 +12,4 @@ const reportSchema = new mongoose.Schema({
 const Lost = mongoose.model('Lost', reportSchema);
 const Found = mongoose.model('Found', reportSchema);
 
-module.exports = { Lost, Found };
+export { Lost, Found };

@@ -1,35 +1,59 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import User from "../models/User.js";
+import { body, validationResult } from 'express-validator';
 
 const router = express.Router();
 
-router.post("/signup", async (req, res) => {
-  const { name, email, password, role } = req.body;
-
-  try {
-    const user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({ message: "User already exists" });
+router.post(
+  "/signup",
+  [
+    body("name").notEmpty().withMessage("Name is required"),
+    body("email").isEmail().withMessage("Invalid email"),
+    body("password")
+      .isLength({ min: 6 })
+      .withMessage("Password must be at least 6 characters long"),
+    body("role").notEmpty().withMessage("Role is required"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({
-      name,
-      email,
-      password: hashedPassword,
-      role, // Save the role
-    });
+    const { name, email, password, role } = req.body;
 
-    await newUser.save();
-    res.status(201).json({ message: "User created successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Server error" });
+    try {
+      const user = await User.findOne({ email });
+      if (user) {
+        return res.status(400).json({ message: "User already exists" });
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const newUser = new User({
+        name,
+        email,
+        password: hashedPassword,
+        role,
+      });
+
+      await newUser.save();
+      res.status(201).json({ message: "User created successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error: error.message });
+    }
   }
-});
+);
 
+router.post("/login", [
+  body("email").isEmail().withMessage("Invalid email"),
+  body("password").notEmpty().withMessage("Password is required"),
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
-router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -49,7 +73,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -60,9 +83,8 @@ router.get("/logout", (req, res) => {
   });
 });
 
-
-//TO GET USER DATA
-//middleware
+// TO GET USER DATA
+// middleware
 const checkAuth = (req, res, next) => {
   if (req.session && req.session.user) {
     req.userEmail = req.session.user.email;
@@ -72,23 +94,19 @@ const checkAuth = (req, res, next) => {
   }
 };
 
-
-
-router.get('/getdata', checkAuth, (req, res) => {
+router.get("/getdata", checkAuth, (req, res) => {
   const userEmail = req.userEmail;
 
   User.findOne({ email: userEmail })
-    .then(user => {
+    .then((user) => {
       if (!user) {
         return res.status(404).json({ message: "User not found" });
       }
       res.status(200).json({ message: "User data fetched successfully", user });
     })
-    .catch(error => {
+    .catch((error) => {
       res.status(500).json({ message: "Server error", error });
     });
 });
-
-
 
 export default router;
