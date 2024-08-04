@@ -6,7 +6,8 @@ const reportSchema = new mongoose.Schema({
   category: String,
   date: Date,
   description: String,
-  images: [String]
+  images: [String],
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } // Add reference to User
 });
 
 const Lost = mongoose.model('Lost', reportSchema);

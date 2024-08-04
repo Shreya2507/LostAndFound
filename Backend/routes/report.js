@@ -1,9 +1,19 @@
 import express from "express";
 import { Lost, Found } from "../models/report.js";
+import User from "../models/User.js";
 
 const router = express.Router();
 
-router.post("/lost", async (req, res) => {
+const checkAuth = (req, res, next) => {
+  if (req.session && req.session.user) {
+    req.userId = req.session.user._id;
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};
+
+router.post("/lost", checkAuth, async (req, res) => {
   const { location, itemName, category, date, description, images } = req.body;
 
   try {
@@ -14,6 +24,7 @@ router.post("/lost", async (req, res) => {
       date,
       description,
       images,
+      user: req.userId // Save the user ID
     });
 
     await newLostItem.save();
@@ -23,7 +34,7 @@ router.post("/lost", async (req, res) => {
   }
 });
 
-router.post("/found", async (req, res) => {
+router.post("/found", checkAuth, async (req, res) => {
   const { location, itemName, category, date, description, images } = req.body;
 
   try {
@@ -34,6 +45,7 @@ router.post("/found", async (req, res) => {
       date,
       description,
       images,
+      user: req.userId // Save the user ID
     });
 
     await newFoundItem.save();

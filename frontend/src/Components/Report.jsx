@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import './ReportForm.css';
-import Modal from './Modal'; // Import the Modal component
+import "react-toastify/dist/ReactToastify.css";
+import "./ReportForm.css";
+import Modal from "./Modal"; // Import the Modal component
 
 export default function ReportForm() {
   const [reportType, setReportType] = useState("lost");
@@ -15,6 +15,23 @@ export default function ReportForm() {
   const [images, setImages] = useState([]);
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
   const [modalMessage, setModalMessage] = useState(""); // State to store modal message
+  const [user, setUser] = useState(null); // State to store user data
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/api/auth/getdata",
+          { withCredentials: true }
+        );
+        setUser(response.data.user);
+      } catch (error) {
+        toast.error("You need to be logged in to report an item.");
+      }
+    }
+
+    fetchUser();
+  }, []);
 
   function clearForm() {
     setReportType("lost");
@@ -28,12 +45,17 @@ export default function ReportForm() {
 
   function handleImage(e) {
     const files = Array.from(e.target.files);
-    const imageUrls = files.map(file => URL.createObjectURL(file));
+    const imageUrls = files.map((file) => URL.createObjectURL(file));
     setImages(imageUrls);
   }
 
   async function handleReport(e) {
     e.preventDefault();
+
+    if (!user) {
+      toast.error("You need to be logged in to report an item.");
+      return;
+    }
 
     const report = {
       location,
@@ -41,13 +63,16 @@ export default function ReportForm() {
       category,
       date,
       description: desc,
-      images
+      images,
     };
 
-    const endpoint = reportType === "lost" ? 'http://localhost:8000/api/reports/lost' : 'http://localhost:8000/api/reports/found';
+    const endpoint =
+      reportType === "lost"
+        ? "http://localhost:8000/api/reports/lost"
+        : "http://localhost:8000/api/reports/found";
 
     try {
-      await axios.post(endpoint, report);
+      await axios.post(endpoint, report, { withCredentials: true });
       setModalMessage("Item reported successfully!");
       setShowModal(true);
       clearForm();
@@ -160,7 +185,10 @@ export default function ReportForm() {
               <input
                 type="button"
                 value="Cancel"
-                onClick={(e) => { e.preventDefault(); clearForm(); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  clearForm();
+                }}
                 className="button21 cancel-button"
               />
             </div>
@@ -171,7 +199,11 @@ export default function ReportForm() {
           <div className="ball21 ballz2"></div>
         </div>
       </div>
-      <Modal show={showModal} handleClose={() => setShowModal(false)} message={modalMessage} />
+      <Modal
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        message={modalMessage}
+      />
     </div>
   );
 }
