@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "./axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 
 const Login = () => {
@@ -26,64 +28,71 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const validateFormData = () => {
-    const { name, email, password } = formData;
-    if (isRightPanelActive) {
-      // Sign-Up Form Validation
-      if (!name || !email || !password) {
-        alert("All fields are required for Sign Up.");
-        return false;
-      }
-      if (!/\S+@\S+\.\S+/.test(email)) {
-        alert("Please enter a valid email address.");
-        return false;
-      }
-    } else {
-      // Sign-In Form Validation
-      if (!email || !password) {
-        alert("Email and password are required for Sign In.");
-        return false;
-      }
-      if (!/\S+@\S+\.\S+/.test(email)) {
-        alert("Please enter a valid email address.");
-        return false;
-      }
+  const validateSignUp = () => {
+    const { name, email, password, role } = formData;
+    if (!name || !email || !password) {
+      toast.error("Please fill in all required fields.");
+      return false;
+    }
+    if (role !== "user" && role !== "admin") {
+      toast.error("Please select a valid role.");
+      return false;
+    }
+    return true;
+  };
+
+  const validateSignIn = () => {
+    const { email, password } = formData;
+    if (!email || !password) {
+      toast.error("Please fill in all required fields.");
+      return false;
     }
     return true;
   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!validateFormData()) return;
+    if (!validateSignUp()) return;
 
     try {
       const response = await axiosInstance.post("/auth/signup", formData);
-      alert(response.data.message);
+      toast.success(response.data.message);
+      clearForm();
     } catch (error) {
       console.error("Signup error:", error);
-      alert(error.response?.data?.message || "Signup failed");
+      toast.error(error.response?.data?.message || "Signup failed");
     }
   };
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    if (!validateFormData()) return;
+    if (!validateSignIn()) return;
 
     try {
       const response = await axiosInstance.post("/auth/login", {
         email: formData.email,
         password: formData.password,
       });
-      alert(response.data.message);
+      toast.success(response.data.message);
       navigate("/Home"); // Redirect to the home page on successful login
     } catch (error) {
       console.error("Signin error:", error);
-      alert(error.response?.data?.message || "Signin failed");
+      toast.error(error.response?.data?.message || "Signin failed");
     }
+  };
+
+  const clearForm = () => {
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      role: "user",
+    });
   };
 
   return (
     <div className="Login-Form">
+      <ToastContainer />
       <div
         className={`container-log ${
           isRightPanelActive ? "right-panel-active" : ""
@@ -139,7 +148,7 @@ const Login = () => {
                   checked={formData.role === "user"}
                   onChange={handleChange}
                 />
-                User
+                <span>User</span>
               </label>
               <label>
                 <input
@@ -149,7 +158,7 @@ const Login = () => {
                   checked={formData.role === "admin"}
                   onChange={handleChange}
                 />
-                Admin
+                <span>Admin</span>
               </label>
             </div>
             <button className="log">Sign Up</button>

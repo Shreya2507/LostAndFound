@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import User from "../models/User.js";
-import { body, validationResult } from 'express-validator';
+import { body, validationResult } from "express-validator";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.post(
     body("name").notEmpty().withMessage("Name is required"),
     body("email").isEmail().withMessage("Invalid email"),
     body("password")
-      .isLength({ min: 6 })
+      .notEmpty()
       .withMessage("Password must be at least 6 characters long"),
     body("role").notEmpty().withMessage("Role is required"),
   ],
@@ -45,33 +45,37 @@ router.post(
   }
 );
 
-router.post("/login", [
-  body("email").isEmail().withMessage("Invalid email"),
-  body("password").notEmpty().withMessage("Password is required"),
-], async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-
-  const { email, password } = req.body;
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
+router.post(
+  "/login",
+  [
+    body("email").isEmail().withMessage("Invalid email"),
+    body("password").notEmpty().withMessage("Password is required"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid credentials" });
-    }
+    const { email, password } = req.body;
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ message: "User not found" });
+      }
 
-    req.session.user = user;
-    res.status(200).json({ message: "Logged in successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Server error" });
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ message: "Invalid credentials" });
+      }
+
+      req.session.user = user;
+      res.status(200).json({ message: "Logged in successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Server error" });
+    }
   }
-});
+);
 
 router.get("/logout", (req, res) => {
   req.session.destroy((err) => {

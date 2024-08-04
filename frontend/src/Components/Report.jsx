@@ -49,6 +49,14 @@ export default function ReportForm() {
     setImages(imageUrls);
   }
 
+  function validateForm() {
+    if (!itemName || location === "Location" || category === "Category" || !date || !desc) {
+      toast.error("Please fill in all required fields.");
+      return false;
+    }
+    return true;
+  }
+
   async function handleReport(e) {
     e.preventDefault();
 
@@ -56,6 +64,8 @@ export default function ReportForm() {
       toast.error("You need to be logged in to report an item.");
       return;
     }
+
+    if (!validateForm()) return;
 
     const report = {
       location,

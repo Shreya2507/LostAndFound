@@ -233,3 +233,24 @@ input.loginput {
 .social-container-log a:hover{
 background-color: #ff9011;
 }
+.role-select {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.role-select label {
+  margin: 0 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.role-select input[type="radio"] {
+  margin-right: 5px;
+  accent-color: #FF4B2B; /* Customize the accent color if needed */
+}
+
+.role-select input[type="radio"]:checked + span {
+  font-weight: bold;
+  color: #FF4B2B; /* Highlight color when selected */
+}
