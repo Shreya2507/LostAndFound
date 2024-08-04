@@ -3,7 +3,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./ReportForm.css";
-import Modal from "./Modal"; // Import the Modal component
 
 export default function ReportForm() {
   const [reportType, setReportType] = useState("lost");
@@ -13,8 +12,6 @@ export default function ReportForm() {
   const [date, setDate] = useState("");
   const [desc, setDesc] = useState("");
   const [images, setImages] = useState([]);
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const [modalMessage, setModalMessage] = useState(""); // State to store modal message
   const [user, setUser] = useState(null); // State to store user data
 
   useEffect(() => {
@@ -50,8 +47,24 @@ export default function ReportForm() {
   }
 
   function validateForm() {
-    if (!itemName || location === "Location" || category === "Category" || !date || !desc) {
-      toast.error("Please fill in all required fields.");
+    if (!itemName.trim()) {
+      toast.error("Item name is required.");
+      return false;
+    }
+    if (location === "Location") {
+      toast.error("Please select a location.");
+      return false;
+    }
+    if (category === "Category") {
+      toast.error("Please select a category.");
+      return false;
+    }
+    if (!date) {
+      toast.error("Please select a date.");
+      return false;
+    }
+    if (!desc.trim()) {
+      toast.error("Description is required.");
       return false;
     }
     return true;
@@ -83,12 +96,10 @@ export default function ReportForm() {
 
     try {
       await axios.post(endpoint, report, { withCredentials: true });
-      setModalMessage("Item reported successfully!");
-      setShowModal(true);
+      toast.success("Item reported successfully!");
       clearForm();
     } catch (error) {
-      setModalMessage("There was an error submitting the report!");
-      setShowModal(true);
+      toast.error("There was an error submitting the report!");
     }
   }
 
@@ -209,11 +220,6 @@ export default function ReportForm() {
           <div className="ball21 ballz2"></div>
         </div>
       </div>
-      <Modal
-        show={showModal}
-        handleClose={() => setShowModal(false)}
-        message={modalMessage}
-      />
     </div>
   );
 }

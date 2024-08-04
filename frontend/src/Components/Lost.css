@@ -134,8 +134,8 @@
 .itemCard {
   display: flex;
   flex-direction: row; /* Ensure cards are laid out in a row */
-  word-wrap: normal;
-  gap: 1rem; /* Maintain the gap between content within the card */
+  word-wrap:inherit;
+  gap: 1.5rem; /* Maintain the gap between content within the card */
   color: #333; /* Darker text color */
   background: rgba(255, 136, 0, 0.2); /* Slightly lighter background */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
