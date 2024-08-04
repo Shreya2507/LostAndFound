@@ -55,4 +55,22 @@ router.post("/found", checkAuth, async (req, res) => {
   }
 });
 
+router.get("/lost", async (req, res) => {
+  try {
+    const lostItems = await Lost.find().populate('user', 'name email');
+    res.status(200).json(lostItems);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+router.get("/found", async (req, res) => {
+  try {
+    const foundItems = await Found.find().populate('user', 'name email');
+    res.status(200).json(foundItems);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
 export default router;
