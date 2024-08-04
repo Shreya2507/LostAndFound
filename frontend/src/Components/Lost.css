@@ -9,53 +9,61 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem; /* Reduced padding */
+  padding: 1rem; /* Increased padding for better spacing */
   min-height: 100vh;
   width: 100vw;
+  background: var(--gradientcolor); /* Use gradient background */
 }
 
 .header-lost {
-  margin-bottom: 1.5rem; /* Reduced margin */
+  margin-bottom: 1rem; /* Adjusted margin for better spacing */
+  text-align: center; /* Center-align text */
 }
 
 .found-title {
-  font-size: 1.5rem; /* Reduced font size */
-  font-weight: 600; /* semibold */
-  color: #e0e0e0; /* Light text color */
+  font-size: 2rem; /* Increased font size for emphasis */
+  font-weight: 700; /* Bold text for title */
+  color: #ffffff; /* High contrast color */
+  margin: 0; /* Removed default margin */
 }
 
 .subtitle {
-  margin-top: 0.25rem; /* Reduced margin-top */
-  margin-bottom: 0.5rem; /* Reduced margin-bottom */
-  font-size: 0.75rem; /* Reduced font size */
-  color: #a0a0a0; /* Slightly lighter text color */
+  margin-top: 0.5rem; /* Increased margin-top */
+  margin-bottom: 1rem; /* Increased margin-bottom */
+  font-size: 1rem; /* Increased font size */
+  color: #d1d1d1; /* Light gray text color */
 }
 
 .searchForm {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem; /* Reduced gap */
-  background-color: white;
-  padding: 0.25rem 0.5rem; /* Reduced padding */
-  border-radius: 0.5rem; /* Reduced border-radius */
-}
-
-#search {
-  background-color: transparent;
+  gap: 0.75rem; /* Slightly larger gap for better spacing */
+  background-color: #ffffff;
+  padding: 0.5rem 1rem; /* Increased padding for better usability */
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
 
 .inputBox {
-  padding: 0.25rem; /* Reduced padding */
+  padding: 0.5rem; /* Increased padding for better usability */
   border-radius: 0.5rem;
-  color: #e0e0e0; /* Light text color */
+  border: 1px solid #ddd; /* Light border for input */
+  color: #333; /* Darker text color for better readability */
   outline: none;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.inputBox:focus {
+  border-color: #007bff; /* Highlight border on focus */
 }
 
 .buttonContainer {
   display: flex;
-  gap: 0.75rem; /* Reduced gap */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 1rem; /* Increased gap for better spacing */
+  justify-content: center;
+  margin-bottom: 1rem; /* Added bottom margin */
 }
 
 .btn-lost {
@@ -63,121 +71,141 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffecee; /* Darker background */
+  background-color: #ffe9f6; /* Soft background color */
   border-radius: 0.5rem;
-  height: 60px; /* Reduced height */
-  width: 60px; /* Reduced width */
-  padding: 0.5rem; /* Reduced padding */
-  transition: opacity 0.2s;
+  height: 70px; /* Adjusted height */
+  width: 70px; /* Adjusted width */
+  padding: 0.5rem;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
   cursor: pointer;
 }
 
-.img-btn {
-  height: 40px; /* Reduced height */
+.btn-lost:hover {
+  background-color: #f5c6cb; /* Highlight background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
-.button:hover {
-  opacity: 0.6;
+.img-btn {
+  height: 50px; /* Increased height */
 }
 
 .search-btn {
-  color: #e0e0e0; /* Light text color */
+  color: #333; /* Dark text color for better readability */
+  font-size: 0.875rem; /* Slightly smaller font size */
 }
 
 .divider {
   width: 100%;
-  height: 1px;
+  height: 2px; /* Increased height for visibility */
   background-color: #e40000; /* Divider color */
-  margin: 1.5rem 0; /* Reduced margin */
+  margin: 2rem 0; /* Increased margin */
 }
 
 .sortForm {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  margin-bottom: 1rem; /* Added bottom margin */
 }
 
 .selectBox {
-  padding: 0.25rem 0.5rem; /* Reduced padding */
-  font-weight: 500; /* medium */
-  background-color: #444444; /* Dark input background */
-  color: #e0e0e0; /* Light text color */
-  border: 1px solid #555555; /* Border color */
+  padding: 0.5rem; /* Increased padding */
+  font-weight: 500;
+  background-color: #444; /* Darker input background */
+  color: #ffffff; /* Light text color */
+  border: 1px solid #555; /* Darker border color */
   border-radius: 0.5rem;
+  transition: background-color 0.3s; /* Smooth transitions */
+}
+
+.selectBox:hover {
+  background-color: #333; /* Darker background on hover */
 }
 
 .itemList {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Reduced gap */
-  max-width: 50rem; /* Reduced max-width */
-  margin-top: 1rem; /* Reduced margin-top */
+  gap: 1rem; /* Increased gap */
+  max-width: 60rem; /* Increased max-width */
+  margin-top: 1rem;
 }
 
 .itemCard {
   display: flex;
-  gap: 0.75rem; /* Reduced gap */
-  color: #e0e0e0; /* Light text color */
-  background: rgba(255, 136, 0, 0.2);
-  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37); /* Reduced shadow size */
-  backdrop-filter: blur(3px); /* Reduced blur */
-  -webkit-backdrop-filter: blur(3px); /* Reduced blur */
-  border-radius: 6px; /* Reduced border-radius */
-  padding: 0.25rem; /* Reduced padding */
+  gap: 1rem; /* Increased gap */
+  color: #333; /* Darker text color */
+  background: rgba(255, 136, 0, 0.2); /* Slightly lighter background */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+  backdrop-filter: blur(6px); /* Increased blur for effect */
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.75rem; /* Adjusted border-radius */
+  padding: 1rem; /* Increased padding */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.itemCard:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
 .itemImage {
-  width: 150px; /* Reduced width */
-  border-radius: 6px; /* Reduced border-radius */
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px; /* Reduced shadow size */
+  width: 180px; /* Increased width */
+  border-radius: 0.75rem; /* Adjusted border-radius */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px; /* Slightly larger shadow */
 }
 
 .itemDetails {
-  max-width: 300px; /* Reduced max-width */
+  max-width: 350px; /* Increased max-width */
 }
 
 .itemTitle {
-  font-size: 1rem; /* Reduced font size */
-  font-weight: 600; /* semibold */
-  margin: 0.75rem 0; /* Reduced margin */
-  color: #e0e0e0; /* Light text color */
+  font-size: 1.25rem; /* Increased font size */
+  font-weight: 700; /* Bold text */
+  margin: 0.5rem 0; /* Adjusted margin */
 }
 
 .itemDesc {
-  margin-bottom: 0.75rem; /* Reduced margin-bottom */
-  color: #a0a0a0; /* Slightly lighter text color */
+  margin-bottom: 1rem; /* Increased margin-bottom */
+  color: #666; /* Darker text color */
 }
 
 .itemInfo {
   display: flex;
-  gap: 1rem; /* Reduced gap */
-  font-weight: 600; /* semibold */
-  color: #a0a0a0; /* Slightly lighter text color */
+  gap: 1.5rem; /* Increased gap */
+  font-weight: 500; /* Medium weight */
+  color: #666; /* Darker text color */
 }
 
 .dividerSmall {
-  width: 16rem; /* Reduced width */
+  width: 100%; /* Full width for smaller screens */
   height: 1px;
-  background-color: #555555; /* Divider color */
+  background-color: #555; /* Divider color */
   margin: 0.5rem 0; /* Reduced margin */
 }
 
 .claimInfo {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .claimButton {
   background-color: #e42121;
   color: white;
-  font-size: 1rem; /* Reduced font size */
-  border-radius: 0.5rem; /* Reduced border-radius */
-  padding: 0.25rem 0.75rem; /* Reduced padding */
+  font-size: 0.875rem; /* Slightly smaller font size */
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem; /* Increased padding */
+  border: none; /* Removed border */
+  cursor: pointer; /* Pointer cursor for button */
+  transition: background-color 0.3s; /* Smooth transitions */
+}
+
+.claimButton:hover {
+  background-color: #c91d1d; /* Darker red on hover */
 }
 
 section {
-  margin: 6px; /* Reduced margin */
+  margin: 8px; /* Slightly increased margin */
 }
 
 .itemDetails.dark,
@@ -192,14 +220,15 @@ p.dark {
 @media (max-width: 768px) {
   .itemCard {
     flex-direction: column;
-    justify-items: center;
+    align-items: center; /* Center-align items */
   }
   .img-section {
     display: flex;
     justify-content: center;
+    width: 100%; /* Full width on smaller screens */
   }
-  h1.itemTitle,
+  .itemTitle,
   .itemDesc {
-    margin: 1rem; /* Reduced margin */
+    margin: 1rem; /* Increased margin for readability */
   }
 }
