@@ -26,8 +26,36 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateFormData = () => {
+    const { name, email, password } = formData;
+    if (isRightPanelActive) {
+      // Sign-Up Form Validation
+      if (!name || !email || !password) {
+        alert("All fields are required for Sign Up.");
+        return false;
+      }
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+    } else {
+      // Sign-In Form Validation
+      if (!email || !password) {
+        alert("Email and password are required for Sign In.");
+        return false;
+      }
+      if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+    }
+    return true;
+  };
+
   const handleSignUp = async (e) => {
     e.preventDefault();
+    if (!validateFormData()) return;
+
     try {
       const response = await axiosInstance.post("/auth/signup", formData);
       alert(response.data.message);
@@ -39,6 +67,8 @@ const Login = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+    if (!validateFormData()) return;
+
     try {
       const response = await axiosInstance.post("/auth/login", {
         email: formData.email,
