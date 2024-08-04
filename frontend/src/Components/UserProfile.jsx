@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./UserProfile.css";
 import { FaUser } from "react-icons/fa";
 
-import userData from "../dummyData/profileDummyData";
-
 export default function UserProfile() {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    // Fetch user data from backend
+    axios.get("http://localhost:8000/api/auth/getdata", { withCredentials: true })
+      .then((response) => {
+        setUserData(response.data.user);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
+
+  if (!userData) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="profile-container">
       <div className="profile-info">
@@ -16,7 +32,6 @@ export default function UserProfile() {
         <div className="profile-box">
           <div className="profile-details">
             <h2>{userData.name}</h2>
-            <p>{userData.id}</p>
             <p>{userData.email}</p>
           </div>
           <div className="profile-buttons">
@@ -43,8 +58,8 @@ export default function UserProfile() {
                 <td>
                   <div className="post-photo"></div>
                 </td>
-                <td>{post.name}</td>
-                <td>{post.dateLost}</td>
+                <td>{post.itemName}</td>
+                <td>{new Date(post.date).toLocaleDateString()}</td>
                 <td>{post.location}</td>
               </tr>
             ))}

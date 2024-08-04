@@ -23,7 +23,7 @@
 .found-title {
   font-size: 2rem; /* Increased font size for emphasis */
   font-weight: 700; /* Bold text for title */
-  color: #ffffff; /* High contrast color */
+  color: #0f0f0f; /* High contrast color */
   margin: 0; /* Removed default margin */
 }
 

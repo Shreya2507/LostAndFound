@@ -65,7 +65,6 @@ function Header() {
             <Link to="/Lostitm">LOST ITEMS</Link>
             <Link to="/Founditm">FOUND ITEMS</Link>
             <Link to="/Report">REPORT</Link>
-            <Link to="/Profile">PROFILE</Link>
           </nav>
         </div>
         <div className="Switch">
